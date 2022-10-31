@@ -16,4 +16,5 @@ public:
     void setVelocidade(int velocidade);
     float getTecnica();
     void setTecnica(int tecnica);
+    void print();
 };

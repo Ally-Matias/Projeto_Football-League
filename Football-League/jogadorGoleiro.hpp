@@ -17,4 +17,5 @@ public:
     void setReflexos(int reflexos);
     float getAltura();
     void setAltura(float altura);
+    void print();
 };
