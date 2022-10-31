@@ -9,16 +9,18 @@ jogadorDefesa::jogadorDefesa(string nome,int idade,int habilidade,int gols,int c
 jogadorDefesa::~jogadorDefesa(){}
 int jogadorDefesa::getHabilidade(){
     auto habilidade{((Jogador::getHabilidade()*5)+(cobertura*3)+(desarme*2)/10)};
-    cout<<habilidade<<'\n';
+    cout<<"Habilidade: "<<habilidade<<'\n';
     return habilidade;
 }
 int jogadorDefesa::getCobertura(){
+    cout<<"Cobertura: "<<cobertura<<'\n';
     return cobertura;
 }
 void jogadorDefesa::setCobertura(int cobertura){
     this->cobertura=cobertura;
 }
 int jogadorDefesa::getDesarme(){
+    cout<<"Desarme: "<<desarme<<'\n';
     return desarme;
 }
 void jogadorDefesa::setDesarme(int desarme){
@@ -26,5 +28,5 @@ void jogadorDefesa::setDesarme(int desarme){
 }
 void jogadorDefesa::print(){
     Jogador::print();
-    cout<<cobertura<<'\n'<<desarme<<'\n';
+    cout<<"Cobertura: "<<cobertura<<'\n'<<"Desarme: "<<desarme<<'\n';
 }
