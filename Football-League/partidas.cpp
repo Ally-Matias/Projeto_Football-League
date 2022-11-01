@@ -14,12 +14,14 @@ partidas::~partida(){};
 
 //Métodos
 
-partidas::golCasa(){
+int partidas::golCasa(){
     placarCasa += 1;
+    return 0;
 }
 
-partidas::golVisitante(){
+int partidas::golVisitante(){
     placarVisitante += 1;
+    return 0;
 }
 
 //Getters
