@@ -1,7 +1,7 @@
 //Prototipação da classe Time
 //Includes.
 #pragma once
-#include "Jogador.hpp";
+#include "jogador.hpp"
 #include <iostream>
 using namespace std;
 
@@ -23,5 +23,5 @@ class Time{
         string somaVitorias();
         string somaDerrotas();
         string somaEmpates();
-        string insJogador(pJpg : Jogador);        
+        string insJogador(pJpg : Jogador);        // pJpg? 
 };

@@ -13,9 +13,9 @@ using namespace std;
         return nome;
     }
     string Time::getResultados(){
-        cout<< vitorias <<endl;
-        cout<< derrotas <<endl;
-        cout<< empates <<endl;
+        cout<< "Vitorias: " << vitorias <<endl;
+        cout<< "Derrotas: " << derrotas <<endl;
+        cout<< "empates: " << empates <<endl;
     }
     string Time::imprimeJogadores(){
         cout << Jogador::getNome << endl;
