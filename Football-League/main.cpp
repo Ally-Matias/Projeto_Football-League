@@ -4,7 +4,8 @@
 #include "jogadorGoleiro.cpp"
 #include "jogadorDefesa.cpp"
 #include "jogadorAtacante.cpp"
-#include "Time.cpp"
+//#include "Time.cpp"
+//#include "partidas.cpp"
 #include <vector>
 #include <iterator>
 //Função principal.
@@ -16,4 +17,5 @@ int main(){
     for(i=jogadoresDefensivos.begin();i!=jogadoresDefensivos.end();i++){
         (*i).print();
     return 0;
-}
+    }
+};

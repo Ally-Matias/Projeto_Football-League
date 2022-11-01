@@ -12,6 +12,16 @@ partidas::partida(char date, Time timeCasa, Time timeVisitante){
 }
 partidas::~partida(){};
 
+//Métodos
+
+partidas::golCasa(){
+    placarCasa += 1;
+}
+
+partidas::golVisitante(){
+    placarVisitante += 1;
+}
+
 //Getters
 Time partidas::getCasa(){
     return this->timeCasa;
@@ -22,8 +32,7 @@ Time partidas::getVisitante{
 }
 
 string partidas::getPlacar(){
-    cout << placarVisitante << endl;
-    cout << placarCasa << endl;
+    cout << timeCasa << " " << placarCasa << " x " << placarVisitante << " " << timeVisitante << endl;
 }
 
-// onde mostrar a date?? cout << date << endl;
+// onde implementar date?? cout << date << endl;
