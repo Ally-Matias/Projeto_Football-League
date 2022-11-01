@@ -28,10 +28,10 @@ int Time::somaDerrotas(){
     derrotas += 1;
     cout << derrotas<< endl;
     return derrotas;
-    }
-    int Time::somaEmpates(){
+}
+int Time::somaEmpates(){
     if(empates > 0)
     empates += 1;
     cout << empates << endl;
     return empates;
-    }
+}
