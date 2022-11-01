@@ -10,6 +10,7 @@ private:
     int reflexos{};
     float altura{};
 public:
+    jogadorGoleiro();
     jogadorGoleiro(string nome,int idade,int habilidade,int gols,int camisa,int reflexos,float altura);
     ~jogadorGoleiro();
     int getHabilidade();

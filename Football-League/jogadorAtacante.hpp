@@ -9,6 +9,7 @@ class jogadorAtacante:public Jogador{
 private:
     int velocidade{},tecnica{};
 public:
+    jogadorAtacante();
     jogadorAtacante(string nome,int idade,int habilidade,int gols,int camisa,int velocidade,float tecnica);
     ~jogadorAtacante();
     int getHabilidade();

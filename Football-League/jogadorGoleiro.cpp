@@ -6,6 +6,7 @@ jogadorGoleiro::jogadorGoleiro(string nome,int idade,int habilidade,int gols,int
     this->reflexos=reflexos;
     this->altura=altura;
 }
+jogadorGoleiro::jogadorGoleiro(){};
 jogadorGoleiro::~jogadorGoleiro(){}
 int jogadorGoleiro::getHabilidade(){
     auto habilidade{((Jogador::getHabilidade()*5)+((static_cast<int>((altura*100)))*2)+(reflexos*3)/10)};

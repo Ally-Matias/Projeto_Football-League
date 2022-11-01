@@ -10,6 +10,7 @@ private:
     string nome{};
     int idade{},habilidade{},gols{},camisa{};
 public:
+    Jogador();
     Jogador(string nome,int idade,int habilidade,int gols,int camisa);
     ~Jogador();
     string getNome();

@@ -16,6 +16,7 @@ class partidas{
         int placarCasa;
         int placarVisitante;
     public:
+        partidas(){};
         partidas(char date, Time timeCasa, Time timeVisitante);
         ~partidas();
         Time getCasa();

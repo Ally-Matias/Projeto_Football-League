@@ -9,6 +9,7 @@ Jogador::Jogador(string nome,int idade,int habilidade,int gols,int camisa){
     this->gols=gols;
     this->camisa=camisa;
 }
+Jogador::Jogador(){};
 Jogador::~Jogador(){}
 string Jogador::getNome(){
     cout<<"Nome: "<<nome<<'\n';

@@ -12,6 +12,7 @@ private:
     int empates{0};
 
 public:
+    Time(){};
     Time(string nome);
     ~Time();
     string getNome();

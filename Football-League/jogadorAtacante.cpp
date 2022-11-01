@@ -6,7 +6,8 @@ jogadorAtacante::jogadorAtacante(string nome,int idade,int habilidade,int gols,i
     this->velocidade=velocidade;
     this->tecnica=tecnica;
 }
-jogadorAtacante::~jogadorAtacante(){}
+jogadorAtacante::jogadorAtacante(){};
+jogadorAtacante::~jogadorAtacante(){};
 int jogadorAtacante::getHabilidade(){
     auto habilidade{((Jogador::getHabilidade()*5)+(velocidade*2)+(tecnica*3)/10)};
     cout<<"Habilidade: "<<habilidade<<'\n';

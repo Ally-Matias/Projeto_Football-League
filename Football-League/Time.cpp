@@ -2,7 +2,7 @@
 //includes.
 #include "Time.hpp"
 //Implementação dos métodos.
-Time::Time(string nome){
+Time::Time(string nome):Jogador(){
     this->nome=nome;
 }
 Time::~Time(){}
