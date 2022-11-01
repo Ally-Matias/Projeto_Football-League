@@ -16,4 +16,5 @@ int main(){
     for(i=jogadoresDefensivos.begin();i!=jogadoresDefensivos.end();i++){
         (*i).print();
     return 0;
+    }
 }
