@@ -35,6 +35,7 @@ Time partidas::getVisitante(){
     return this->timeVisitante;
 }
 
-string partidas::getPlacar(){
+int partidas::getPlacar(){
     cout << timeCasa << " " << placarCasa << " x " << placarVisitante << " " << timeVisitante << endl;
+    return 0;
 }

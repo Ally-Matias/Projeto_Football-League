@@ -21,7 +21,7 @@ class partidas{
         ~partidas();
         Time getCasa();
         Time getVisitante();
-        string getPlacar();
+        int getPlacar();
         int golCasa();
         int golVisitante();
 };
