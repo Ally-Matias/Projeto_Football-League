@@ -9,7 +9,7 @@ using namespace std;
 
 //classe
 class partidas{
-    private:
+    protected:
         char date[9];
         Time timeCasa;
         Time timeVisitante;

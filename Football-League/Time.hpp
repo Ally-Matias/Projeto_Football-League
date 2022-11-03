@@ -4,7 +4,7 @@
 #include "Jogador.hpp"
 //classe.
 class Time:Jogador{
-private:
+protected:
     string nome;
     Jogador jogador;
     int vitorias{0};

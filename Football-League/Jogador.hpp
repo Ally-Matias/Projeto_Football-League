@@ -6,7 +6,7 @@ using namespace std;
 //classe.
 class Jogador{
 //atributos e métodos.
-private:
+protected:
     string nome{};
     int idade{},habilidade{},gols{},camisa{};
 public:

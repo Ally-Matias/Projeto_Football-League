@@ -6,7 +6,7 @@
 //classe.
 class jogadorGoleiro:public Jogador{
 //atributos e métodos.
-private:
+protected:
     int reflexos{};
     float altura{};
 public:

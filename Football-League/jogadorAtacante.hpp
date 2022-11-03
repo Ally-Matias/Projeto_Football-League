@@ -6,7 +6,7 @@
 //classe.
 class jogadorAtacante:public Jogador{
 //atributos e métodos.
-private:
+protected:
     int velocidade{},tecnica{};
 public:
     jogadorAtacante();
