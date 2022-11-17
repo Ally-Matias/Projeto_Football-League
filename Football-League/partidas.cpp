@@ -1,30 +1,26 @@
 //Implementação da classe partidas.
 //Includes
-#include "partidas.hpp"
-#include <iostream>
 
-using namespace std;
+#include "partidas.hpp"
 
 //Implementação.
-partidas::partidas(char date, Time timeCasa, Time timeVisitante){ // :Time()??
+partidas::partidas(char date, Time timeCasa, Time timeVisitante):Time(){ // :Time()??
     //_strdate(date);
     this->timeCasa = timeCasa;
     this->timeVisitante = timeVisitante;
 }
-partidas::partidas(){};
-partidas::~partidas(){};
 
 //Métodos
 
-int partidas::golCasa(){
-    placarCasa += 1;
-    return 0;
-}
+// int partidas::golCasa(){
+//     placarCasa += 1;
+//     return 0;
+// }
 
-int partidas::golVisitante(){
-    placarVisitante += 1;
-    return 0;
-}
+// int partidas::golVisitante(){
+//     placarVisitante += 1;
+//     return 0;
+// }
 
 //Getters
 Time partidas::getCasa(){
@@ -35,7 +31,6 @@ Time partidas::getVisitante(){
     return this->timeVisitante;
 }
 
-int partidas::getPlacar(){
-    cout << timeCasa << " " << placarCasa << " x " << placarVisitante << " " << timeVisitante << endl;
-    return 0;
+string partidas::getPlacar(){
+ //   cout << timeCasa << " " << placarCasa << " x " << placarVisitante << " " << timeVisitante << endl;
 }

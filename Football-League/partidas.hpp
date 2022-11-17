@@ -3,14 +3,11 @@
 #pragma once
 #include "Time.hpp"
 #include<time.h> // date time
-#include <iostream>
-
-using namespace std;
 
 //classe
-class partidas{
+class partidas: public Time{
     protected:
-        char date[9];
+        char date[9]; // falta implementar
         Time timeCasa;
         Time timeVisitante;
         int placarCasa;
@@ -18,10 +15,10 @@ class partidas{
     public:
         partidas(){};
         partidas(char date, Time timeCasa, Time timeVisitante);
-        ~partidas();
+        ~partidas(){};
         Time getCasa();
         Time getVisitante();
-        int getPlacar();
-        int golCasa();
-        int golVisitante();
+        string getPlacar();
+       // int golCasa();
+       // int golVisitante();
 };
