@@ -4,8 +4,8 @@
 #include "jogadorGoleiro.cpp"
 #include "jogadorDefesa.cpp"
 #include "jogadorAtacante.cpp"
-//#include "Time.cpp"
-//#include "partidas.cpp"
+#include "Time.cpp"
+#include "partidas.cpp"
 #include <vector>
 #include <iterator>
 #include "menus.cpp"
