@@ -50,8 +50,8 @@ int main(){
                 cin >> tec;
                 cout << " " << endl;
                 ofstream add;
-                add.open("Jogadores.txt", ios::app);
-                add <<"Nome: "<<nom<<'\n'<<"Idade: "<<idad<<'\n'<<"Habilidade: "<<hab<<'\n'<<"Gols: "<<gol<<'\n'<<"Camisa: "<<cami<<'\n'<<"Velocidade: "<<vel<<'\n'<<"Tecnica: "<<tec<<'\n';
+                add.open("Jogadores.csv", ios::app);
+                add <<nom<<','<<idad<<','<<hab<<','<<gol<<','<<cami<<','<<vel<<','<<tec<<'\n';
                 add.close();
                 jogadorAtacante *jogador = new jogadorAtacante(nom, idad, hab, gol, cami, vel, tec);
                 cout << "Jogador ATACANTE criado com sucesso!" << endl;
@@ -78,8 +78,8 @@ int main(){
                 cin >> des;
                 cout << " " << endl;
                 ofstream add;
-                add.open("Jogadores.txt", ios::app);
-                add <<"Nome: "<<nom<<'\n'<<"Idade: "<<idad<<'\n'<<"Habilidade: "<<hab<<'\n'<<"Gols: "<<gol<<'\n'<<"Camisa: "<<cami<<'\n'<<"Cobertura: "<<cob<<'\n'<<"Desarme: "<<des<<'\n';
+                add.open("Jogadores.csv", ios::app);
+                add <<nom<<','<<idad<<','<<hab<<','<<gol<<','<<cami<<','<<cob<<','<<des<<'\n';
                 add.close();
                 jogadorDefesa *jogador = new jogadorDefesa(nom, idad, hab, gol, cami, cob, des);
                 cout << "Jogador DEFENSOR criado com sucesso!" << endl;
@@ -107,8 +107,8 @@ int main(){
                 cin >> altu;
                 cout << " " << endl;
                 ofstream add;
-                add.open("Jogadores.txt", ios::app);
-                add <<"Nome: "<<nom<<'\n'<<"Idade: "<<idad<<'\n'<<"Habilidade: "<<hab<<'\n'<<"Gols: "<<gol<<'\n'<<"Camisa: "<<cami<<'\n'<<"Reflexo: "<<ref<<'\n'<<"Altura: "<<altu<<'\n';
+                add.open("Jogadores.csv", ios::app);
+                add <<nom<<','<<idad<<','<<hab<<','<<gol<<','<<cami<<','<<ref<<','<<altu<<'\n';
                 add.close();
                 jogadorGoleiro *jogador = new jogadorGoleiro(nom, idad, hab, gol, cami, ref, altu);
                 cout << "GOLEIRO criado com sucesso!" << endl;
