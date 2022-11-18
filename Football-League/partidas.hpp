@@ -2,23 +2,49 @@
 //includes 
 #pragma once
 #include "Time.hpp"
-#include<time.h> // date time
 
 //classe
+
 class partidas: public Time{
     protected:
-        char date[9]; // falta implementar
-        Time timeCasa;
-        Time timeVisitante;
+        string date;
+        string timeCasa;       
+        string timeVisitante;
         int placarCasa;
         int placarVisitante;
     public:
         partidas(){};
-        partidas(char date, Time timeCasa, Time timeVisitante);
+        partidas(string date, string timeCasa, string timeVisitante);
         ~partidas(){};
-        Time getCasa();
-        Time getVisitante();
+        string getCasa();
+        string getVisitante();
         string getPlacar();
-       // int golCasa();
-       // int golVisitante();
+        int golCasa();
+        int golVisitante();
 };
+
+
+
+
+
+
+
+
+// class partidas: public Time{
+//     protected:
+//         char static date;
+//         Time timeCasa;       // mudar tipo time para string
+//         Time timeVisitante;
+//         int placarCasa;
+//         int placarVisitante;
+//     public:
+//         partidas(){};
+//         partidas(char date, Time timeCasa, Time timeVisitante);
+//         ~partidas(){};
+//         Time getCasa();
+//         Time getVisitante();
+//         string getPlacar();
+//         int golCasa();
+//         int golVisitante();
+//         char static getDate();
+// };
