@@ -17,7 +17,7 @@ class partidas{
         ~partidas(){};
         string getCasa();
         string getVisitante();
-        string getPlacar();
+        void getPlacar();
         string getDate();
         int golCasa();
         int golVisitante();
