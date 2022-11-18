@@ -38,6 +38,7 @@ int main(){
                 for(j=jogador.begin();j!=jogador.end();j++){
                 add<<(*j).getNome()<<','<<(*j).getIdade()<<','<<(*j).getHabilidade()<<','<<(*j).getGols()<<','<<(*j).getCamisa()<<','<<(*j).getVelocidade()<<','<<(*j).getTecnica()<<'\n';
                 add.close();
+                cout << " " << endl;
                 cout << "Jogador ATACANTE criado com sucesso!" << endl;
                 cout << " " << endl;
                 }
@@ -50,6 +51,7 @@ int main(){
                 for(j=jogador.begin();j!=jogador.end();j++){
                 add<<(*j).getNome()<<','<<(*j).getIdade()<<','<<(*j).getHabilidade()<<','<<(*j).getGols()<<','<<(*j).getCamisa()<<','<<(*j).getCobertura()<<','<<(*j).getDesarme()<<'\n';
                 add.close();
+                cout << " " << endl;
                 cout << "Jogador DEFENSOR criado com sucesso!" << endl;
                 cout << " " << endl;
                 }
@@ -62,6 +64,7 @@ int main(){
                 for(j=jogador.begin();j!=jogador.end();j++){
                 add<<(*j).getNome()<<','<<(*j).getIdade()<<','<<(*j).getHabilidade()<<','<<(*j).getGols()<<','<<(*j).getCamisa()<<','<<(*j).getReflexos()<<','<<(*j).getAltura()<<'\n';
                 add.close();
+                cout << " " << endl;
                 cout << "GOLEIRO criado com sucesso!" << endl;
                 cout << " " << endl;
                 }
@@ -98,24 +101,21 @@ int main(){
         }else if(menu == 3){   // # Menu partida #
             int partida = menus::menuPartida();
             if(partida == 1){
-                string dat;
-                string timeC;
-                string timeV;
-                cout << "Qual vai ser a data da partida? xx/xx/xxxx " << endl;
-                cin >> dat;
-                cout << "Qual o time da casa? " << endl;
-                cin >> timeC;
-                cout << "Qual o time visitante? " << endl;
-                cin >> timeV;
-                partidas *part = new partidas(dat, timeC, timeV);
-                cout << "" << endl;
-                cout << "A partida vai ser na data " << dat << " Entre: " << timeC << " X " << timeV << endl;
+                vector<partidas>::iterator i;
+                vector<partidas>partida;
                 ofstream add;
                 add.open("partidas.csv", ios::app);
-                add <<dat<<','<<timeC<<','<<timeV<<'\n';
+                partida.push_back(partidas());
+                for(i=partida.begin();i!=partida.end();i++){
+                add<<(*i).getDate()<<','<<(*i).getCasa()<<','<<(*i).getVisitante()<<'\n';
                 add.close();
+                cout << " " << endl;
+                i->getPlacar();
+                }
+                cout << " " << endl;
                 // criar partida
             }else if(partida == 2){
+                cout << "Nao implementado." << endl;
                 // random, atribuindo os valores para algum lugar
                 // iniciar partida
             }else if(partida == 3){

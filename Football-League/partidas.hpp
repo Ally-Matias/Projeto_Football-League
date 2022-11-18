@@ -1,24 +1,24 @@
 //Prototipação da classe
 //includes 
 #pragma once
-#include "Time.hpp"
 
 //classe
 
-class partidas: public Time{
+class partidas{
     protected:
         string date;
         string timeCasa;       
         string timeVisitante;
-        int placarCasa;
-        int placarVisitante;
+        int placarCasa = 0;
+        int placarVisitante = 0;
     public:
-        partidas(){};
+        partidas();
         partidas(string date, string timeCasa, string timeVisitante);
         ~partidas(){};
         string getCasa();
         string getVisitante();
         string getPlacar();
+        string getDate();
         int golCasa();
         int golVisitante();
 };

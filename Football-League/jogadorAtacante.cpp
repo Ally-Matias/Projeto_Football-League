@@ -6,7 +6,7 @@ jogadorAtacante::jogadorAtacante():Jogador(){
     cout<<"Qual a velocidade do jogador?: "<<'\n';
     cin>>velocidade;
     cout<<"Qual a técnica do jogador?: "<<'\n';
-    cin>>idade;
+    cin>>tecnica;
 };
 jogadorAtacante::jogadorAtacante(string nome,int idade,int habilidade,int gols,int camisa,int velocidade,float tecnica):Jogador(nome,idade,habilidade,gols,camisa){
     this->velocidade=velocidade;

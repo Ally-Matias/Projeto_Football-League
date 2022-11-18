@@ -5,7 +5,16 @@
 
 //Implementação.
 
-partidas::partidas(string date, string timeCasa, string timeVisitante):Time(){ // :Time()??
+partidas::partidas(){
+    cout << "Qual vai ser a data da partida? xx/xx/xxxx " << endl;
+    cin >> date;
+    cout << "Qual o time da casa? " << endl;
+    cin >> timeCasa;
+    cout << "Qual o time visitante? " << endl;
+    cin >> timeVisitante;
+}
+
+partidas::partidas(string date, string timeCasa, string timeVisitante){ // :Time()??
     this->date = date;
     this->timeCasa = timeCasa;
     this->timeVisitante = timeVisitante;
@@ -32,8 +41,12 @@ string partidas::getVisitante(){
     return timeVisitante;
 }
 
+string partidas::getDate(){
+    return date;
+}
+
 string partidas::getPlacar(){
-    cout << timeCasa << " " << placarCasa << " x " << placarVisitante << " " << timeVisitante << endl;
+    cout << "DATA: " << date << "\n" << timeCasa << " " << placarCasa << " x " << placarVisitante << " " << timeVisitante << endl;
 }
 
 
