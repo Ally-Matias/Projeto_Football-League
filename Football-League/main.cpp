@@ -59,7 +59,30 @@ int main(){
                 cout << " " << endl;
                 }
             }else if (jog == 4){
-                // n tem acesso, precisa do save txt
+                // vector<jogadorAtacante> jogador;
+                ifstream read("Jogadores.csv");
+                string linha;
+                while(getline(read, linha)){
+                    vector<string>palavras;
+                    palavras.clear();
+                    string temp="";
+                    for(int i = 0;i < linha.size();i++){
+                        if (linha[i]==','){
+                            palavras.push_back(temp);
+                            temp="";
+                        }
+                        else{
+                            temp+=linha[i];
+                        }
+                    }
+                    if (temp.size()>0){
+                        palavras.push_back(temp);
+                    }
+                    for (int i=0; i < palavras.size();i++){
+                        cout << palavras[i]<<'\n';
+                    }
+                    // jogador.push_back(jogadorAtacante(palavras[1],palavras[2],palavras[3],palavras[4],palavras[5],palavras[6],palavras[7]));
+                }
             }else if (jog == 5){
                 // n implementado
             }else{
