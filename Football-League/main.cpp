@@ -30,94 +30,41 @@ int main(){
         if (menu == 1){
             int jog = menus::menuJogador();
             if (jog == 1){
-                string nom;
-                float tec;
-                int idad, hab, gol, cami, vel;
-                cout << "Digite os dados do jogador ATACANTE" << endl;
-                cout << " " << endl;
-                cout << "Digite o nome" << endl;
-                cin >> nom;
-                cout << "Digite a idade" << endl;
-                cin >> idad;
-                cout << "Digite a habilidade" << endl;
-                cin >> hab;
-                cout << "Digite a quantidade de gols" << endl;
-                cin >> gol;
-                cout << "Digite o N da camisa" << endl;
-                cin >> cami;
-                cout << "Digite a velocidade" << endl;
-                cin >> vel;
-                cout << "Digite a tecnica" << endl;
-                cin >> tec;
-                cout << " " << endl;
+                vector<jogadorAtacante>::iterator j;
+                vector<jogadorAtacante>jogador;
                 ofstream add;
                 add.open("Jogadores.csv", ios::app);
-                add <<nom<<','<<idad<<','<<hab<<','<<gol<<','<<cami<<','<<vel<<','<<tec<<'\n';
+                jogador.push_back(jogadorAtacante());
+                for(j=jogador.begin();j!=jogador.end();j++){
+                add<<(*j).getNome()<<','<<(*j).getIdade()<<','<<(*j).getHabilidade()<<','<<(*j).getGols()<<','<<(*j).getCamisa()<<','<<(*j).getVelocidade()<<','<<(*j).getTecnica()<<'\n';
                 add.close();
-                jogadorAtacante *jogador = new jogadorAtacante(nom, idad, hab, gol, cami, vel, tec);
                 cout << "Jogador ATACANTE criado com sucesso!" << endl;
                 cout << " " << endl;
-                count += 1; // provisorio, contar linhas no futuro ou guardar valor em txt
-                jogador->print();
+                }
             }else if (jog == 2){
-                string nom;
-                int idad, hab, gol, cami, cob, des;
-                cout << "Digite os dados do jogador DEFENSOR" << endl;
-                cout << " " << endl;
-                cout << "Digite o nome" << endl;
-                cin >> nom;
-                cout << "Digite a idade" << endl;
-                cin >> idad;
-                cout << "Digite a habilidade" << endl;
-                cin >> hab;
-                cout << "Digite a quantidade de gols" << endl;
-                cin >> gol;
-                cout << "Digite o N da camisa" << endl;
-                cin >> cami;
-                cout << "Digite a cobertura" << endl;
-                cin >> cob;
-                cout << "Digite o desarme" << endl;
-                cin >> des;
-                cout << " " << endl;
+                vector<jogadorDefesa>::iterator j;
+                vector<jogadorDefesa>jogador;
                 ofstream add;
                 add.open("Jogadores.csv", ios::app);
-                add <<nom<<','<<idad<<','<<hab<<','<<gol<<','<<cami<<','<<cob<<','<<des<<'\n';
+                jogador.push_back(jogadorDefesa());
+                for(j=jogador.begin();j!=jogador.end();j++){
+                add<<(*j).getNome()<<','<<(*j).getIdade()<<','<<(*j).getHabilidade()<<','<<(*j).getGols()<<','<<(*j).getCamisa()<<','<<(*j).getCobertura()<<','<<(*j).getDesarme()<<'\n';
                 add.close();
-                jogadorDefesa *jogador = new jogadorDefesa(nom, idad, hab, gol, cami, cob, des);
                 cout << "Jogador DEFENSOR criado com sucesso!" << endl;
                 cout << " " << endl;
-                count += 1;
-                jogador->print();
+                }
             }else if (jog == 3){
-                string nom;
-                float altu;
-                int idad, hab, gol, cami, ref;
-                cout << "Digite os dados do GOLEIRO" << endl;
-                cout << " " << endl;
-                cout << "Digite o nome" << endl;
-                cin >> nom;
-                cout << "Digite a idade" << endl;
-                cin >> idad;
-                cout << "Digite a habilidade" << endl;
-                cin >> hab;
-                cout << "Digite a quantidade de gols" << endl;
-                cin >> gol;
-                cout << "Digite o N da camisa" << endl;
-                cin >> cami;
-                cout << "Digite o reflexo" << endl;
-                cin >> ref;
-                cout << "Digite a altura" << endl;
-                cin >> altu;
-                cout << " " << endl;
+                vector<jogadorGoleiro>::iterator j;
+                vector<jogadorGoleiro>jogador;
                 ofstream add;
                 add.open("Jogadores.csv", ios::app);
-                add <<nom<<','<<idad<<','<<hab<<','<<gol<<','<<cami<<','<<ref<<','<<altu<<'\n';
+                jogador.push_back(jogadorGoleiro());
+                for(j=jogador.begin();j!=jogador.end();j++){
+                add<<(*j).getNome()<<','<<(*j).getIdade()<<','<<(*j).getHabilidade()<<','<<(*j).getGols()<<','<<(*j).getCamisa()<<','<<(*j).getReflexos()<<','<<(*j).getAltura()<<'\n';
                 add.close();
-                jogadorGoleiro *jogador = new jogadorGoleiro(nom, idad, hab, gol, cami, ref, altu);
                 cout << "GOLEIRO criado com sucesso!" << endl;
                 cout << " " << endl;
-                count += 1;
-                jogador->print();
+                }
             }else if (jog == 4){
                 // n tem acesso, precisa do save txt
             }else if (jog == 5){

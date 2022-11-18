@@ -2,11 +2,16 @@
 //Includes.
 #include "jogadorGoleiro.hpp"
 //Implementação dos métodos. 
+jogadorGoleiro::jogadorGoleiro():Jogador(){
+    cout<<"Qual os reflexos do jogador?: "<<'\n';
+    cin>>reflexos;
+    cout<<"Qual a altura do jogador?: "<<'\n';
+    cin>>altura;
+};
 jogadorGoleiro::jogadorGoleiro(string nome,int idade,int habilidade,int gols,int camisa,int reflexos,float altura):Jogador(nome,idade,habilidade,gols,camisa){
     this->reflexos=reflexos;
     this->altura=altura;
 }
-jogadorGoleiro::jogadorGoleiro(){};
 jogadorGoleiro::~jogadorGoleiro(){}
 int jogadorGoleiro::getHabilidade(){
     auto habilidade{((Jogador::getHabilidade()*5)+((static_cast<int>((altura*100)))*2)+(reflexos*3)/10)};

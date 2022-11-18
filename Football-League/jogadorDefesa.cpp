@@ -2,11 +2,16 @@
 //includes.
 #include "jogadorDefesa.hpp"
 //implementação dos métodos.
+jogadorDefesa::jogadorDefesa():Jogador(){
+    cout<<"Qual a cobertura do jogador?: "<<'\n';
+    cin>>cobertura;
+    cout<<"Qual o desarme do jogador?: "<<'\n';
+    cin>>desarme;
+};
 jogadorDefesa::jogadorDefesa(string nome,int idade,int habilidade,int gols,int camisa,int cobertura,int desarme):Jogador(nome,idade,habilidade,gols,camisa){
     this->cobertura=cobertura;
     this->desarme=desarme;
 }
-jogadorDefesa::jogadorDefesa(){};
 jogadorDefesa::~jogadorDefesa(){}
 int jogadorDefesa::getHabilidade(){
     auto habilidade{((Jogador::getHabilidade()*5)+(cobertura*3)+(desarme*2)/10)};

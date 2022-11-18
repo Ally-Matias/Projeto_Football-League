@@ -2,6 +2,18 @@
 //includes.
 #include "Jogador.hpp"
 //Implementação dos métodos.
+Jogador::Jogador(){
+    cout<<"Qual o nome do jogador?: "<<'\n';
+    cin>>nome;
+    cout<<"Qual a idade do jogador?: "<<'\n';
+    cin>>idade;
+    cout<<"Insira os pontos de Habilidade do jogador: "<<'\n';
+    cin>>habilidade;
+    cout<<"Insira o número de gols do jogador: "<<'\n';
+    cin>>gols;
+    cout<<"Insira o número da camisa do jogador: "<<'\n';
+    cin>>camisa;
+};
 Jogador::Jogador(string nome,int idade,int habilidade,int gols,int camisa){
     this->nome=nome;
     this->idade=idade;
@@ -9,7 +21,6 @@ Jogador::Jogador(string nome,int idade,int habilidade,int gols,int camisa){
     this->gols=gols;
     this->camisa=camisa;
 }
-Jogador::Jogador(){};
 Jogador::~Jogador(){}
 string Jogador::getNome(){
     cout<<"Nome: "<<nome<<'\n';
