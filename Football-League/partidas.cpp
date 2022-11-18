@@ -45,8 +45,8 @@ string partidas::getDate(){
     return date;
 }
 
-string partidas::getPlacar(){
-    cout << "DATA: " << date << "\n" << timeCasa << " " << placarCasa << " x " << placarVisitante << " " << timeVisitante << endl;
+void partidas::getPlacar(){
+    cout << "Data: " << date << "\n" << timeCasa << " " << placarCasa << " x " << placarVisitante << " " << timeVisitante << endl;
 }
 
 

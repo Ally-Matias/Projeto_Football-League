@@ -68,9 +68,8 @@ int menus::menuPartida(){
 int menus::menuDadosG(){ // ainda n implementado na main
     cout << " " << endl;
     cout << "----- DADOS GERAIS ----- " << endl;
-    cout << "Opção 1 - Criar partida" << endl;
-    cout << "Opção 2 - Iniciar partida " << endl;
-    cout << "Opção 3 - Sair" << endl;
+    cout << "Opção 1 - Inserir um nome para a pesquisa" << endl;
+    cout << "Opção 2 - Sair" << endl;
     cout << " " << endl;
     int opcao;
     cin >> opcao;

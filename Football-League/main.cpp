@@ -10,20 +10,10 @@
 #include <vector>
 #include <iterator>
 #include <fstream>
+#include<cstdlib>
 
 //Função principal.
 int main(){
-    /*
-    vector<jogadorDefesa>::iterator i;
-    vector<jogadorDefesa>jogadoresDefensivos;
-    jogadoresDefensivos.push_back(jogadorDefesa("Gabigol",31,89,128,9,76,60));
-    jogadoresDefensivos.push_back(jogadorDefesa("Neymar",32,95,400,10,89,99));
-    for(i=jogadoresDefensivos.begin();i!=jogadoresDefensivos.end();i++){
-        (*i).print();
-    return 0;
-    };
-    */
-
     while (true){
         int menu = menus::menuPrincipal();
         int static count = 0; // provisorio, contar linhas no futuro ou guardar valor em txt
@@ -72,11 +62,8 @@ int main(){
                 // n tem acesso, precisa do save txt
             }else if (jog == 5){
                 // n implementado
-            }else if (jog == 6){
-                int menu = menus::menuPrincipal();
-            }else{  // try catch, tratar depois
-                cout << "Opção invalida!" << endl;
-                //int menu = menus::menuJogador();
+            }else{
+                // (sair) int menu = menus::menuPrincipal();
             }
 
         }else if(menu == 2){   // # Menu Times #
@@ -92,11 +79,8 @@ int main(){
             }else if(time == 3){
                 cout << "Exibir time não implementado." << endl;
                 // exibir time
-            }else if(time == 4){
-                int menu = menus::menuPrincipal();
-            }else{ // try catch, tratar depois
-                cout << "Opção invalida!" << endl;
-                //int menu = menus::menuTime();
+            }else{
+                // sair
             }
         }else if(menu == 3){   // # Menu partida #
             int partida = menus::menuPartida();
@@ -115,22 +99,28 @@ int main(){
                 cout << " " << endl;
                 // criar partida
             }else if(partida == 2){
-                cout << "Nao implementado." << endl;
-                // random, atribuindo os valores para algum lugar
+                srand((unsigned) time(NULL));
+                int random = rand() % 2;
+                if(random == 0){    // futuramente sera dois randoms gol time casa, gol time visit.
+                    cout << "Time Casa venceu a partida" << endl;
+                }else{
+                    cout << "Time visitante venceu a partida" << endl;
+                }
                 // iniciar partida
-            }else if(partida == 3){
-                int menu = menus::menuPrincipal();
-            }else{ // try catch, tratar depois
-                cout << "Opção invalida!" << endl;
-                int menu = menus::menuPartida();
+            }else{
+               // int menu = menus::menuPrincipal();
             }
         }else if(menu == 4){  // # Menu Dados Gerais #
-            cout << "Ainda nao implementado" << endl;
+                int dados = menus::menuDadosG();
+                if (dados == 1){
+                    cout << "nao implementado ainda!" << endl;
+                }else{
+                    // sair int menu = menus::menuPrincipal();
+                }
         }else{         // # Menu Sair #
-            cout << "Voce saiu!" << endl;
+            cout << "Você saiu!" << endl;
             return false;
         }
     }
-    
     return 0;
 };
