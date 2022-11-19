@@ -11,6 +11,7 @@
 #include <iterator>
 #include <fstream>
 #include<cstdlib>
+#include <string>
 
 //Função principal.
 int main(){
@@ -23,7 +24,7 @@ int main(){
                 vector<jogadorAtacante>::iterator j;
                 vector<jogadorAtacante>jogador;
                 ofstream add;
-                add.open("Jogadores.csv", ios::app);
+                add.open("jogadorAtacante.csv", ios::app);
                 jogador.push_back(jogadorAtacante());
                 for(j=jogador.begin();j!=jogador.end();j++){
                 add<<(*j).getNome()<<','<<(*j).getIdade()<<','<<(*j).getHabilidade()<<','<<(*j).getGols()<<','<<(*j).getCamisa()<<','<<(*j).getVelocidade()<<','<<(*j).getTecnica()<<'\n';
@@ -36,7 +37,7 @@ int main(){
                 vector<jogadorDefesa>::iterator j;
                 vector<jogadorDefesa>jogador;
                 ofstream add;
-                add.open("Jogadores.csv", ios::app);
+                add.open("jogadorDefesa.csv", ios::app);
                 jogador.push_back(jogadorDefesa());
                 for(j=jogador.begin();j!=jogador.end();j++){
                 add<<(*j).getNome()<<','<<(*j).getIdade()<<','<<(*j).getHabilidade()<<','<<(*j).getGols()<<','<<(*j).getCamisa()<<','<<(*j).getCobertura()<<','<<(*j).getDesarme()<<'\n';
@@ -49,7 +50,7 @@ int main(){
                 vector<jogadorGoleiro>::iterator j;
                 vector<jogadorGoleiro>jogador;
                 ofstream add;
-                add.open("Jogadores.csv", ios::app);
+                add.open("jogadorGoleiro.csv", ios::app);
                 jogador.push_back(jogadorGoleiro());
                 for(j=jogador.begin();j!=jogador.end();j++){
                 add<<(*j).getNome()<<','<<(*j).getIdade()<<','<<(*j).getHabilidade()<<','<<(*j).getGols()<<','<<(*j).getCamisa()<<','<<(*j).getReflexos()<<','<<(*j).getAltura()<<'\n';
@@ -59,8 +60,8 @@ int main(){
                 cout << " " << endl;
                 }
             }else if (jog == 4){
-                // vector<jogadorAtacante> jogador;
-                ifstream read("Jogadores.csv");
+                vector<jogadorAtacante> jogador;
+                ifstream read("jogadorAtacante.csv");
                 string linha;
                 while(getline(read, linha)){
                     vector<string>palavras;
@@ -78,10 +79,19 @@ int main(){
                     if (temp.size()>0){
                         palavras.push_back(temp);
                     }
-                    for (int i=0; i < palavras.size();i++){
-                        cout << palavras[i]<<'\n';
+                    vector<int> stats;
+                    for(int i=1;i < palavras.size();i++){
+                    stats.push_back(stoi(palavras[i]));
                     }
-                    // jogador.push_back(jogadorAtacante(palavras[1],palavras[2],palavras[3],palavras[4],palavras[5],palavras[6],palavras[7]));
+                    jogador.push_back(jogadorAtacante(palavras[0],stats[0],stats[1],stats[2],stats[3],stats[4],stats[5]));
+                }
+                string nomeJogador;
+                cout<<"Insira o nome do jogador a exibir: "<<'\n';
+                cin>>nomeJogador;
+                for(int  i=0;i<jogador.size();i++){
+                    if(jogador[i].getNome()==nomeJogador){
+                        jogador[i].print();
+                    }
                 }
             }else if (jog == 5){
                 // n implementado

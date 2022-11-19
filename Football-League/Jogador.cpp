@@ -23,35 +23,30 @@ Jogador::Jogador(string nome,int idade,int habilidade,int gols,int camisa){
 }
 Jogador::~Jogador(){}
 string Jogador::getNome(){
-    cout<<"Nome: "<<nome<<'\n';
     return nome;
 }
 void Jogador::setNome(string nome){
     this->nome=nome;
 }
 int Jogador::getIdade(){
-    cout<<"Idade: "<<idade<<'\n';
     return idade;
 }
 void Jogador::setIdade(int idade){
     this->idade=idade;
 }
 int Jogador::getHabilidade(){
-    cout<<"Habilidade: "<<habilidade<<'\n';
     return habilidade;
 }
 void Jogador::setHabilidade(int habilidade){
     this->habilidade=habilidade;
 }
 int Jogador::getGols(){
-    cout<<"Gols: "<<gols<<'\n';
     return gols;
 }
 void Jogador::setGols(int gols){
     this->gols=gols;
 }
 int Jogador::getCamisa(){
-    cout<<"Camisa: "<<camisa<<'\n';
     return camisa;
 }
 void Jogador::setCamisa(int camisa){

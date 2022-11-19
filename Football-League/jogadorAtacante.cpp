@@ -14,19 +14,16 @@ jogadorAtacante::jogadorAtacante(string nome,int idade,int habilidade,int gols,i
 }
 jogadorAtacante::~jogadorAtacante(){};
 int jogadorAtacante::getHabilidade(){
-    auto habilidade{((Jogador::getHabilidade()*5)+(velocidade*2)+(tecnica*3)/10)};
-    cout<<"Habilidade: "<<habilidade<<'\n';
+    auto habilidade{((Jogador::getHabilidade()*5)+(velocidade*2)+(tecnica*3))/10};
     return habilidade;
 }
 int jogadorAtacante::getVelocidade(){
-    cout<<"Velocidade: "<<velocidade<<'\n';
     return velocidade;
 }
 void jogadorAtacante::setVelocidade(int velocidade){
     this->velocidade=velocidade;
 }
 float jogadorAtacante::getTecnica(){
-    cout<<"Técnica: "<<tecnica<<'\n';
     return tecnica;
 }
 void jogadorAtacante::setTecnica(int tecnica){
