@@ -15,10 +15,13 @@
 
 //Função principal.
 int main(){
+    system("clear");
+    cout << "## BEM VINDO AO FOOTBALL LEAGUE ##" << endl;
     while (true){
         int menu = menus::menuPrincipal();
         int static count = 0; // provisorio, contar linhas no futuro ou guardar valor em txt
         if (menu == 1){     // # Menu jogadores #
+            system("clear");
             int jog = menus::menuJogador();
             if (jog == 1){
                 vector<jogadorAtacante>::iterator j;
@@ -96,12 +99,15 @@ int main(){
             }else if (jog == 5){
                 // n implementado
             }else{
+                system("clear");
                 // (sair) int menu = menus::menuPrincipal();
             }
 
         }else if(menu == 2){   // # Menu Times #
+            system("clear");
             int time = menus::menuTime();
             if(count < 1){ // no futuro sera 5 jogadores
+                system("clear");
                 cout << "Vc tem poucos jogadores para formar um time!" << endl;
             }else if(time == 1){
                 cout << "Criar time não implementado." << endl;
@@ -113,9 +119,11 @@ int main(){
                 cout << "Exibir time não implementado." << endl;
                 // exibir time
             }else{
+                system("clear");
                 // sair
             }
         }else if(menu == 3){   // # Menu partida #
+            system("clear");
             int partida = menus::menuPartida();
             if(partida == 1){
                 vector<partidas>::iterator i;
@@ -141,9 +149,11 @@ int main(){
                 }
                 // iniciar partida
             }else{
+                system("clear");
                // int menu = menus::menuPrincipal();
             }
         }else if(menu == 4){  // # Menu Dados Gerais #
+                system("clear");
                 int dados = menus::menuDadosG();
                 if (dados == 1){
                     cout << "nao implementado ainda!" << endl;
