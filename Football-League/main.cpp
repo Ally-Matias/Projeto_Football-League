@@ -15,14 +15,11 @@
 
 //Função principal.
 int main(){
-<<<<<<< HEAD
     system("clear");
     cout << "## BEM VINDO AO FOOTBALL LEAGUE ##" << endl;
-=======
     vector<jogadorAtacante> jogadorATK;
     vector<jogadorDefesa> jogadorDEF;
     vector<jogadorGoleiro> jogadorGK;
->>>>>>> main
     while (true){
         int menu = menus::menuPrincipal();
         int static count = 0; // provisorio, contar linhas no futuro ou guardar valor em txt
