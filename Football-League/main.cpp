@@ -15,8 +15,14 @@
 
 //Função principal.
 int main(){
+<<<<<<< HEAD
     system("clear");
     cout << "## BEM VINDO AO FOOTBALL LEAGUE ##" << endl;
+=======
+    vector<jogadorAtacante> jogadorATK;
+    vector<jogadorDefesa> jogadorDEF;
+    vector<jogadorGoleiro> jogadorGK;
+>>>>>>> main
     while (true){
         int menu = menus::menuPrincipal();
         int static count = 0; // provisorio, contar linhas no futuro ou guardar valor em txt
@@ -63,37 +69,113 @@ int main(){
                 cout << " " << endl;
                 }
             }else if (jog == 4){
-                vector<jogadorAtacante> jogador;
-                ifstream read("jogadorAtacante.csv");
-                string linha;
-                while(getline(read, linha)){
-                    vector<string>palavras;
-                    palavras.clear();
-                    string temp="";
-                    for(int i = 0;i < linha.size();i++){
-                        if (linha[i]==','){
+                int opt=menus::menuListJogador();
+                if(opt==1){
+                    ifstream read("jogadorAtacante.csv");
+                    string linha;
+                    while(getline(read, linha)){
+                        vector<string>palavras;
+                        palavras.clear();
+                        string temp="";
+                        for(int i = 0;i < linha.size();i++){
+                            if (linha[i]==','){
+                                palavras.push_back(temp);
+                                temp="";
+                            }
+                            else{
+                                temp+=linha[i];
+                            }
+                        }
+                        if (temp.size()>0){
                             palavras.push_back(temp);
-                            temp="";
                         }
-                        else{
-                            temp+=linha[i];
+                        vector<int> stats;
+                        for(int i=1;i < palavras.size();i++){
+                        stats.push_back(stoi(palavras[i]));
+                        }
+                        jogadorATK.push_back(jogadorAtacante(palavras[0],stats[0],stats[1],stats[2],stats[3],stats[4],stats[5]));
+                    }
+                    string nomeJogador;
+                    cout<<"Insira o nome do jogador a exibir: "<<'\n';
+                    cin>>nomeJogador;
+                    for(int i=0;i<jogadorATK.size();i++){
+                        if(jogadorATK[i].getNome()==nomeJogador){
+                            jogadorATK[i].print();
                         }
                     }
-                    if (temp.size()>0){
-                        palavras.push_back(temp);
-                    }
-                    vector<int> stats;
-                    for(int i=1;i < palavras.size();i++){
-                    stats.push_back(stoi(palavras[i]));
-                    }
-                    jogador.push_back(jogadorAtacante(palavras[0],stats[0],stats[1],stats[2],stats[3],stats[4],stats[5]));
                 }
-                string nomeJogador;
-                cout<<"Insira o nome do jogador a exibir: "<<'\n';
-                cin>>nomeJogador;
-                for(int  i=0;i<jogador.size();i++){
-                    if(jogador[i].getNome()==nomeJogador){
-                        jogador[i].print();
+                else if(opt==2){
+                    ifstream read("jogadorDefesa.csv");
+                    string linha;
+                    while(getline(read, linha)){
+                        vector<string>palavras;
+                        palavras.clear();
+                        string temp="";
+                        for(int i = 0;i < linha.size();i++){
+                            if (linha[i]==','){
+                                palavras.push_back(temp);
+                                temp="";
+                            }
+                            else{
+                                temp+=linha[i];
+                            }
+                        }
+                        if (temp.size()>0){
+                            palavras.push_back(temp);
+                        }
+                        vector<int> stats;
+                        for(int i=1;i < palavras.size();i++){
+                        stats.push_back(stoi(palavras[i]));
+                        }
+                        jogadorDEF.push_back(jogadorDefesa(palavras[0],stats[0],stats[1],stats[2],stats[3],stats[4],stats[5]));
+                    }
+                    string nomeJogador;
+                    cout<<"Insira o nome do jogador a exibir: "<<'\n';
+                    cin>>nomeJogador;
+                    for(int  i=0;i<jogadorDEF.size();i++){
+                        if(jogadorDEF[i].getNome()==nomeJogador){
+                            jogadorDEF[i].print();
+                        }
+                    }
+                }
+                else if(opt==3){
+                    ifstream read("jogadorGoleiro.csv");
+                    string linha;
+                    while(getline(read, linha)){
+                        vector<string>palavras;
+                        palavras.clear();
+                        string temp="";
+                        for(int i = 0;i < linha.size();i++){
+                            if (linha[i]==','){
+                                palavras.push_back(temp);
+                                temp="";
+                            }
+                            else{
+                                temp+=linha[i];
+                            }
+                        }
+                        if (temp.size()>0){
+                            palavras.push_back(temp);
+                        }
+                        vector<int> stats;
+                        vector<float>status;
+                        for(int i=1;i < palavras.size();i++){
+                            if(i==6){
+                                status.push_back(stof(palavras[6]));    
+                            }
+                            else{
+                                stats.push_back(stoi(palavras[i]));
+                            }
+                        }
+                        jogadorGK.push_back(jogadorGoleiro(palavras[0],stats[0],stats[1],stats[2],stats[3],stats[4],status[0]));
+                    }
+                    string nomeJogador;
+                    cout<<"Insira o nome do jogador a exibir: "<<'\n';
+                    cin>>nomeJogador;
+                    for(int  i=0;i<jogadorGK.size();i++){
+                        if(jogadorGK[i].getNome()==nomeJogador){
+                            jogadorGK[i].print();
+                        }
                     }
                 }
             }else if (jog == 5){
