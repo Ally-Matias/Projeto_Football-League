@@ -55,7 +55,7 @@ int main(){
                 vector<jogadorDefesa>::iterator j;    // Iterador para percorrer os dados do Objeto antes de adicionar ao arquivo csv.
                 vector<jogadorDefesa>jogador;     //Vector para armazernar os osbjetos provisórios.
                 ofstream add;   //Objeto de fstream para adicionar os dados ao arquivo csv.
-                add.open("Jogadores/jogadorDefensor.csv", ios::app);    //Abertura do arquivo csv.
+                add.open("Jogadores/jogadorDefesa.csv", ios::app);    //Abertura do arquivo csv.
                 jogador.push_back(jogadorDefesa());   //Instanciação do objeto provisório.
                 for(j=jogador.begin();j!=jogador.end();j++){
                 add<<(*j).getNome()<<','<<(*j).getIdade()<<','<<(*j).getHabilidade()<<','<<(*j).getGols()<<','<<(*j).getCamisa()<<','<<(*j).getCobertura()<<','<<(*j).getDesarme()<<'\n';  //Adição dos dados do objeto ao arquivo CSV.
