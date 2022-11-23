@@ -1,9 +1,15 @@
 //Implementação da classe Time.
 //includes.
+#pragma once
 #include "Time.hpp"
 //Implementação dos métodos.
-Time::Time(string nome):Jogador(){
+Time::Time(string nome){
     this->nome=nome;
+}
+
+Time::Time(){
+    cout<<"Qual o nome do time?: ";
+    cin>>nome;
 }
 
 string Time::getNome(){
@@ -45,7 +51,7 @@ int Time::somaEmpates(){
     // return empates;
 }
 
-void Time::insJogador(Jogador pJpg){  // jogador.insJogador(new Jogador());
-    jogador=pJpg;
-}
+// void Time::insJogador(Jogador pJpg){  // jogador.insJogador(new Jogador());
+//     jogador=pJpg;
+// }
 // https://cursos.alura.com.br/forum/topico-instanciar-objetos-diversas-duvidas-88336

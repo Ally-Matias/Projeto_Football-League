@@ -3,9 +3,9 @@
 #include "jogadorDefesa.hpp"
 //implementação dos métodos.
 jogadorDefesa::jogadorDefesa():Jogador(){
-    cout<<"Qual a cobertura do jogador?: "<<'\n';
+    cout<<"Qual a cobertura do jogador?: ";
     cin>>cobertura;
-    cout<<"Qual o desarme do jogador?: "<<'\n';
+    cout<<"Qual o desarme do jogador?: ";
     cin>>desarme;
 };
 jogadorDefesa::jogadorDefesa(string nome,int idade,int habilidade,int gols,int camisa,int cobertura,int desarme):Jogador(nome,idade,habilidade,gols,camisa){

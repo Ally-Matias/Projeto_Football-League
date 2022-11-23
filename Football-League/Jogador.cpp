@@ -3,15 +3,15 @@
 #include "Jogador.hpp"
 //Implementação dos métodos.
 Jogador::Jogador(){
-    cout<<"Qual o nome do jogador?: "<<'\n';
+    cout<<"Qual o nome do jogador?: ";
     cin>>nome;
-    cout<<"Qual a idade do jogador?: "<<'\n';
+    cout<<"Qual a idade do jogador?: ";
     cin>>idade;
-    cout<<"Insira os pontos de Habilidade do jogador: "<<'\n';
+    cout<<"Insira os pontos de Habilidade do jogador: ";
     cin>>habilidade;
-    cout<<"Insira o número de gols do jogador: "<<'\n';
+    cout<<"Insira o número de gols do jogador: ";
     cin>>gols;
-    cout<<"Insira o número da camisa do jogador: "<<'\n';
+    cout<<"Insira o número da camisa do jogador: ";
     cin>>camisa;
 };
 Jogador::Jogador(string nome,int idade,int habilidade,int gols,int camisa){

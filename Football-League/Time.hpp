@@ -1,18 +1,20 @@
 //Prototipação da classe Time
 //Includes.
 #pragma once
-#include "Jogador.hpp"
+#include <iostream>
+using namespace std;
+
 //classe.
-class Time:Jogador{
+class Time{
 protected:
     string nome;
-    Jogador jogador;
+    string jogador;  // futuramente vai ser um vetor
     int vitorias = 0;
     int derrotas = 0;
     int empates = 0;
 
 public:
-    Time(){};
+    Time();
     Time(string nome);
     ~Time(){};
     string getNome();
@@ -21,5 +23,5 @@ public:
     int somaVitorias();
     int somaDerrotas();
     int somaEmpates();
-    void insJogador(Jogador pJpg);        // instanciamento de jogador, atribui ao atributo jogador
+    //void insJogador(Jogador pJpg);        // instanciamento de jogador, atribui ao atributo jogador
 };

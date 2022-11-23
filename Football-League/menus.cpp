@@ -7,6 +7,7 @@ class menus{
         int static menuPrincipal();
         int static menuJogador();
         int static menuListJogador();
+        int static menuDeleteJogador();
         int static menuTime();
         int static menuPartida();
         int static menuDadosG();
@@ -32,7 +33,7 @@ int menus::menuJogador(){
     cout << "Opção 1 - Jogador atacante" << endl;
     cout << "Opção 2 - Jogador defensor" << endl;
     cout << "Opção 3 - Goleiro" << endl;
-    cout << "Opção 4 - Exibir jogador" << endl; // n feito
+    cout << "Opção 4 - Exibir jogador" << endl; 
     cout << "Opção 5 - Remover jogador" << endl; // n feito
     cout << "Opção 6 - Sair" << endl;
     cout << " " << endl;
@@ -44,10 +45,12 @@ int menus::menuJogador(){
 int menus::menuTime(){
     cout << " " << endl;
     cout << "----- CRIAÇÃO DE TIME ----- " << endl;
-    cout << "Opção 1 - Criar time" << endl;
-    cout << "Opção 2 - Excluir time " << endl;
-    cout << "Opção 3 - Exibir times" << endl;
-    cout << "Opção 4 - Sair" << endl;
+    cout << "Opção 1 - Criar time" << endl;   
+    cout << "Opção 2 - Formar time" << endl; 
+    cout << "Opção 3 - Excluir time " << endl;
+    cout << "Opção 4 - Exibir todos times" << endl; // mostrar tds os times
+    cout << "Opção 5 - Exibir time" << endl;  // exibir time especifico com atributos e jogadores
+    cout << "Opção 6 - Sair" << endl;
     cout << " " << endl;
     int opcao;
     cin >> opcao;
@@ -88,3 +91,20 @@ int menus::menuListJogador(){
     cin >> opcao;
     return opcao;
 };
+int menus::menuDeleteJogador(){
+    cout << " " << endl;
+    cout << "----- DELETAR JOGADOR ----- " << endl;
+    cout << "Opção 1 - Deletar Jogador atacante" << endl;
+    cout << "Opção 2 - Deletar Jogador defensor" << endl;
+    cout << "Opção 3 - Deletar Goleiro" << endl;
+    cout << "Opção 4 - Sair" << endl;
+    cout << " " << endl;
+    int opcao;
+    cin >> opcao;
+    return opcao;  
+};
+
+
+// possivelmente futuramente o update sera o seguinte: update?: pergunta o nome, faz o delete e cria uma nova instancia, n gostou? só chora
+
+// coisas para ally fazer, o time, o else do tratamento de escessão, e o while de partidas para verificar quando partida pode ser criado.

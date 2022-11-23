@@ -6,11 +6,11 @@
 //Implementação.
 
 partidas::partidas(){
-    cout << "Qual vai ser a data da partida? xx/xx/xxxx " << endl;
+    cout << "Qual vai ser a data da partida? xx/xx/xxxx : ";
     cin >> date;
-    cout << "Qual o time da casa? " << endl;
+    cout << "Qual o time da casa? : ";
     cin >> timeCasa;
-    cout << "Qual o time visitante? " << endl;
+    cout << "Qual o time visitante? : ";
     cin >> timeVisitante;
 }
 
