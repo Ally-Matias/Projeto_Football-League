@@ -29,21 +29,20 @@ int main(){
     string tec;
     while (true){
         int menu = menus::menuPrincipal();
-        int static count = 0; // provisorio, contar linhas no futuro ou guardar valor em txt
+        // int static count = 0; // provisorio, contar linhas no futuro ou guardar valor em txt
         if (menu == 1){     // # Menu jogadores #
             system("clear");
             int jog = menus::menuJogador();
-            if (jog == 1){
+            if (jog == 1){ //Adicionar Jogador Atacante.
                 system("clear");
-                vector<jogadorAtacante>::iterator j;
-                vector<jogadorAtacante>jogador;
-                ofstream add;
-                add.open("Jogadores/jogadorAtacante.csv", ios::app);
-                jogador.push_back(jogadorAtacante());
+                vector<jogadorAtacante>::iterator j;    // Iterador para percorrer os dados do Objeto antes de adicionar ao arquivo csv.
+                vector<jogadorAtacante>jogador;     //Vector para armazernar os osbjetos provisórios.
+                ofstream add;   //Objeto de fstream para adicionar os dados ao arquivo csv.
+                add.open("Jogadores/jogadorAtacante.csv", ios::app);    //Abertura do arquivo csv.
+                jogador.push_back(jogadorAtacante());   //Instanciação do objeto provisório.
                 for(j=jogador.begin();j!=jogador.end();j++){
-                add<<(*j).getNome()<<','<<(*j).getIdade()<<','<<(*j).getHabilidade()<<','<<(*j).getGols()<<','<<(*j).getCamisa()<<','<<(*j).getVelocidade()<<','<<(*j).getTecnica()<<'\n';
-                add.close();
-                system("clear");
+                add<<(*j).getNome()<<','<<(*j).getIdade()<<','<<(*j).getHabilidade()<<','<<(*j).getGols()<<','<<(*j).getCamisa()<<','<<(*j).getVelocidade()<<','<<(*j).getTecnica()<<'\n';  //Adição dos dados do objeto ao arquivo CSV.
+                add.close();    //Conclusão da adição ao arquivo.
                 cout << " " << endl;
                 cout << "Jogador ATACANTE criado com sucesso!" << endl;
                 cout << " " << endl;
@@ -51,75 +50,77 @@ int main(){
                 cin >> tec;
                 system("clear");
                 }
-            }else if (jog == 2){
+            }else if (jog == 2){ //Adicionar Jogador Defensor. 
                 system("clear");
-                vector<jogadorDefesa>::iterator j;
-                vector<jogadorDefesa>jogador;
-                ofstream add;
-                add.open("jogadorDefesa.csv", ios::app);
-                jogador.push_back(jogadorDefesa());
+                vector<jogadorDefesa>::iterator j;    // Iterador para percorrer os dados do Objeto antes de adicionar ao arquivo csv.
+                vector<jogadorDefesa>jogador;     //Vector para armazernar os osbjetos provisórios.
+                ofstream add;   //Objeto de fstream para adicionar os dados ao arquivo csv.
+                add.open("Jogadores/jogadorDefensor.csv", ios::app);    //Abertura do arquivo csv.
+                jogador.push_back(jogadorDefesa());   //Instanciação do objeto provisório.
                 for(j=jogador.begin();j!=jogador.end();j++){
-                add<<(*j).getNome()<<','<<(*j).getIdade()<<','<<(*j).getHabilidade()<<','<<(*j).getGols()<<','<<(*j).getCamisa()<<','<<(*j).getCobertura()<<','<<(*j).getDesarme()<<'\n';
-                add.close();
-                system("clear");
+                add<<(*j).getNome()<<','<<(*j).getIdade()<<','<<(*j).getHabilidade()<<','<<(*j).getGols()<<','<<(*j).getCamisa()<<','<<(*j).getCobertura()<<','<<(*j).getDesarme()<<'\n';  //Adição dos dados do objeto ao arquivo CSV.
+                add.close();    //Conclusão da adição ao arquivo.
                 cout << " " << endl;
-                cout << "Jogador DEFENSOR criado com sucesso!" << endl;
+                cout << "Jogador ATACANTE criado com sucesso!" << endl;
                 cout << " " << endl;
                 cout << "Aperte qualquer tecla para voltar ao menu inicial: ";
                 cin >> tec;
                 system("clear");
                 }
-            }else if (jog == 3){
+            }else if (jog == 3){ //Adicionar Jogador Goleiro.
                 system("clear");
-                vector<jogadorGoleiro>::iterator j;
-                vector<jogadorGoleiro>jogador;
-                ofstream add;
-                add.open("jogadorGoleiro.csv", ios::app);
-                jogador.push_back(jogadorGoleiro());
+                vector<jogadorGoleiro>::iterator j;    // Iterador para percorrer os dados do Objeto antes de adicionar ao arquivo csv.
+                vector<jogadorGoleiro>jogador;     //Vector para armazernar os osbjetos provisórios.
+                ofstream add;   //Objeto de fstream para adicionar os dados ao arquivo csv.
+                add.open("Jogadores/jogadorGoleiro.csv", ios::app);    //Abertura do arquivo csv.
+                jogador.push_back(jogadorGoleiro());   //Instanciação do objeto provisório.
                 for(j=jogador.begin();j!=jogador.end();j++){
-                add<<(*j).getNome()<<','<<(*j).getIdade()<<','<<(*j).getHabilidade()<<','<<(*j).getGols()<<','<<(*j).getCamisa()<<','<<(*j).getReflexos()<<','<<(*j).getAltura()<<'\n';
-                add.close();
-                system("clear");
+                add<<(*j).getNome()<<','<<(*j).getIdade()<<','<<(*j).getHabilidade()<<','<<(*j).getGols()<<','<<(*j).getCamisa()<<','<<(*j).getReflexos()<<','<<(*j).getAltura()<<'\n';  //Adição dos dados do objeto ao arquivo CSV.
+                add.close();    //Conclusão da adição ao arquivo.
                 cout << " " << endl;
-                cout << "GOLEIRO criado com sucesso!" << endl;
+                cout << "Jogador GOLEIRO criado com sucesso!" << endl;
                 cout << " " << endl;
                 cout << "Aperte qualquer tecla para voltar ao menu inicial: ";
                 cin >> tec;
                 system("clear");
                 }
-            }else if (jog == 4){
+            }else if (jog == 4){ //Listar Jogadores.
                 system("clear");
                 int opt=menus::menuListJogador();
-                if(opt==1){
-                    ifstream read("jogadorAtacante.csv");
-                    string linha;
-                    while(getline(read, linha)){
-                        palavras.clear();
+                if(opt==1){ //Listar Jogador Atacante.
+                //Estrutura para ler o Arquivo csv e guardar os campos em um vector.
+                    ifstream read("Jogadores/jogadorAtacante.csv"); //Objeto ifstream para a leitura do arquivo csv.
+                    string linha; //variável para receber caracteres ao rodar o while.
+                    while(getline(read, linha)){ //Lendo o fluxo de texto e salvando na variável linha.
+                        palavras.clear(); // Limpando o vector palavras.
                         string temp="";
                         for(int i = 0;i < linha.size();i++){
-                            if (linha[i]==','){
+                            if (linha[i]==','){ //Se a vírgula for detectada adiconamos o texto anterior.
                                 palavras.push_back(temp);
                                 temp="";
                             }
                             else{
-                                temp+=linha[i];
+                                temp+=linha[i]; //Caso não haja vírgula a variável temp recebe o conteúdo da linha.
                             }
                         }
                         if (temp.size()>0){
                             palavras.push_back(temp);
                         }
-                        vector<int> stats;
-                        for(int i=1;i < palavras.size();i++){
-                        stats.push_back(stoi(palavras[i]));
+                        //Após a criação do vetor palavras, temos que converter os valores que estão com o type STRING para o type INT.
+                        vector<int> stats; //Vetor de inteiros;
+                        for(int i=1;i < palavras.size();i++){ //Pulamos o índice [0] pois nele é contido o nome do Jogador. 
+                        stats.push_back(stoi(palavras[i])); //A função STOI é a responsável por converter STRING para INT. 
                         }
+                        //Instanciação do jogador com um vector definitivo e com as devidas conversões de tipo.
                         jogadorATK.push_back(jogadorAtacante(palavras[0],stats[0],stats[1],stats[2],stats[3],stats[4],stats[5]));
                     }
                     system("clear");
+                    //Inserção do Nome do jogador para lista-lo.
                     string nomeJogador;
                     cout<<"Insira o nome do jogador a exibir: "<<'\n';
                     cin>>nomeJogador;
                     for(int i=0;i<jogadorATK.size();i++){
-                        if(jogadorATK[i].getNome()==nomeJogador){
+                        if(jogadorATK[i].getNome()==nomeJogador){ //Se o índice referente ao nome do objeto for igual ao nome fornecido listamos o jogador.
                             jogadorATK[i].print();
                         //     cont += 1;          // futura atualização e finalização
                         // }else if(cont == 0){
@@ -130,80 +131,95 @@ int main(){
                     cin >> tec;
                     system("clear");
                 }
-                else if(opt==2){
-                    ifstream read("jogadorDefesa.csv");
-                    string linha;
-                    while(getline(read, linha)){
-                        palavras.clear();
+                else if(opt==2){ //Listar Jogador Defensor.
+                    //Estrutura para ler o Arquivo csv e guardar os campos em um vector.
+                    ifstream read("Jogadores/jogadorDefesa.csv"); //Objeto ifstream para a leitura do arquivo csv.
+                    string linha; //variável para receber caracteres ao rodar o while.
+                    while(getline(read, linha)){ //Lendo o fluxo de texto e salvando na variável linha.
+                        palavras.clear(); // Limpando o vector palavras.
                         string temp="";
                         for(int i = 0;i < linha.size();i++){
-                            if (linha[i]==','){
+                            if (linha[i]==','){ //Se a vírgula for detectada adiconamos o texto anterior.
                                 palavras.push_back(temp);
                                 temp="";
                             }
                             else{
-                                temp+=linha[i];
+                                temp+=linha[i]; //Caso não haja vírgula a variável temp recebe o conteúdo da linha.
                             }
                         }
                         if (temp.size()>0){
                             palavras.push_back(temp);
                         }
-                        vector<int> stats;
-                        for(int i=1;i < palavras.size();i++){
-                        stats.push_back(stoi(palavras[i]));
+                        //Após a criação do vetor palavras, temos que converter os valores que estão com o type STRING para o type INT.
+                        vector<int> stats; //Vetor de inteiros;
+                        for(int i=1;i < palavras.size();i++){ //Pulamos o índice [0] pois nele é contido o nome do Jogador. 
+                        stats.push_back(stoi(palavras[i])); //A função STOI é a responsável por converter STRING para INT. 
                         }
+                        //Instanciação do jogador com um vector definitivo e com as devidas conversões de tipo.
                         jogadorDEF.push_back(jogadorDefesa(palavras[0],stats[0],stats[1],stats[2],stats[3],stats[4],stats[5]));
                     }
                     system("clear");
+                    //Inserção do Nome do jogador para lista-lo.
                     string nomeJogador;
                     cout<<"Insira o nome do jogador a exibir: "<<'\n';
                     cin>>nomeJogador;
-                    for(int  i=0;i<jogadorDEF.size();i++){
-                        if(jogadorDEF[i].getNome()==nomeJogador){
+                    for(int i=0;i<jogadorDEF.size();i++){
+                        if(jogadorDEF[i].getNome()==nomeJogador){ //Se o índice referente ao nome do objeto for igual ao nome fornecido listamos o jogador.
                             jogadorDEF[i].print();
+                        //     cont += 1;          // futura atualização e finalização
+                        // }else if(cont == 0){
+                        //     cout << "Jogador não encontrado" << endl;
                         }
                     }
                     cout << "Aperte qualquer tecla para voltar ao menu inicial: ";
                     cin >> tec;
                     system("clear");
                 }
-                else if(opt==3){
-                    ifstream read("jogadorGoleiro.csv");
-                    string linha;
-                    while(getline(read, linha)){
-                        palavras.clear();
+                else if(opt==3){ //Listar Jgador Goleiro.
+                    //Estrutura para ler o Arquivo csv e guardar os campos em um vector.
+                    ifstream read("Jogadores/jogadorGoleiro.csv"); //Objeto ifstream para a leitura do arquivo csv.
+                    string linha; //variável para receber caracteres ao rodar o while.
+                    while(getline(read, linha)){ //Lendo o fluxo de texto e salvando na variável linha.
+                        palavras.clear(); // Limpando o vector palavras.
                         string temp="";
                         for(int i = 0;i < linha.size();i++){
-                            if (linha[i]==','){
+                            if (linha[i]==','){ //Se a vírgula for detectada adiconamos o texto anterior.
                                 palavras.push_back(temp);
                                 temp="";
                             }
                             else{
-                                temp+=linha[i];
+                                temp+=linha[i]; //Caso não haja vírgula a variável temp recebe o conteúdo da linha.
                             }
                         }
                         if (temp.size()>0){
                             palavras.push_back(temp);
                         }
-                        vector<int> stats;
-                        vector<float>status;
-                        for(int i=1;i < palavras.size();i++){
+                        //Após a criação do vetor palavras, temos que converter os valores que estão com o type STRING para o type INT.
+                        vector<int> stats; //Vetor de inteiros;
+                        vector<float>stats2; //Vetor de floats; 
+                        for(int i=1;i < palavras.size();i++){ //Pulamos o índice [0] pois nele é contido o nome do Jogador. 
                             if(i==6){
-                                status.push_back(stof(palavras[6]));    
+                                stats2.push_back(stof(palavras[6]));
                             }
                             else{
-                                stats.push_back(stoi(palavras[i]));
+                                stats.push_back(stoi(palavras[i])); //A função STOI é a responsável por converter STRING para INT.
                             }
+                             
                         }
-                        jogadorGK.push_back(jogadorGoleiro(palavras[0],stats[0],stats[1],stats[2],stats[3],stats[4],status[0]));
+                        //Instanciação do jogador com um vector definitivo e com as devidas conversões de tipo.
+                        jogadorATK.push_back(jogadorAtacante(palavras[0],stats[0],stats[1],stats[2],stats[3],stats[4],stats2[0]));
                     }
                     system("clear");
+                    //Inserção do Nome do jogador para lista-lo.
                     string nomeJogador;
                     cout<<"Insira o nome do jogador a exibir: "<<'\n';
                     cin>>nomeJogador;
-                    for(int  i=0;i<jogadorGK.size();i++){
-                        if(jogadorGK[i].getNome()==nomeJogador){
+                    for(int i=0;i<jogadorGK.size();i++){
+                        if(jogadorGK[i].getNome()==nomeJogador){ //Se o índice referente ao nome do objeto for igual ao nome fornecido listamos o jogador.
                             jogadorGK[i].print();
+                        //     cont += 1;          // futura atualização e finalização
+                        // }else if(cont == 0){
+                        //     cout << "Jogador não encontrado" << endl;
                         }
                     }
                     cout << "Aperte qualquer tecla para voltar ao menu inicial: ";
@@ -221,7 +237,7 @@ int main(){
                     for(int i=0;i<jogadorATK.size();i++){
                         if(jogadorATK[i].getNome()==nomejogador){
                             jogadorATK.erase(jogadorATK.begin()+i);
-                            ifstream read("jogadorAtacante.csv");
+                            ifstream read("Jogadores/jogadorAtacante.csv");
                             string linha;
                             while(getline(read, linha)){
                                 palavras.clear();
