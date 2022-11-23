@@ -3,9 +3,9 @@
 #include "jogadorAtacante.hpp"
 //Implementação dos métodos.
 jogadorAtacante::jogadorAtacante():Jogador(){
-    cout<<"Qual a velocidade do jogador?: "<<'\n';
+    cout<<"Qual a velocidade do jogador?: ";
     cin>>velocidade;
-    cout<<"Qual a técnica do jogador?: "<<'\n';
+    cout<<"Qual a técnica do jogador?: ";
     cin>>tecnica;
 };
 jogadorAtacante::jogadorAtacante(string nome,int idade,int habilidade,int gols,int camisa,int velocidade,float tecnica):Jogador(nome,idade,habilidade,gols,camisa){

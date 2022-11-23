@@ -2,6 +2,8 @@
 //includes 
 #pragma once
 
+#include <iostream>
+using namespace std;
 //classe
 
 class partidas{
