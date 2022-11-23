@@ -240,14 +240,13 @@ int main(){
                 int opt=menus::menuDeleteJogador();
                 if(opt==1){
                     system("clear");
-                    cout << hey::red << "Insira o nome do jogador a deletar: " << hey::off << endl;
                     int count{0};
                     string nomejogador,linha,name;
                     ifstream read;
                     ofstream add;
                     read.open("Jogadores/jogadorAtacante.csv", ios::in);
                     add.open("Jogadores/newjogadorAtacante.csv", ios::app);
-                    cout<<"Insira o nome do jogador atacante a deletar: ";
+                    cout << hey::red << "Insira o nome do jogador a deletar: " << hey::off;
                     cin>>nomejogador;
                     cout << " " << endl;
                     for(int i=0;i<jogadorATK.size();i++){
@@ -290,9 +289,17 @@ int main(){
                     }
                     if(count==1){
                         cout<<"Jogador ATACANTE deletado com sucesso!"<<'\n';
+                        cout << " " << endl;
+                        cout << hey::yellowi << "Aperte qualquer tecla para voltar ao menu inicial: " << hey::off;
+                        cin >> tec;
+                        system("clear");
                     }
                     else{
                         cout<<"Jogador ATACANTE não encontrado!"<<'\n';
+                        cout << " " << endl;
+                        cout << hey::yellowi << "Aperte qualquer tecla para voltar ao menu inicial: " << hey::off;
+                        cin >> tec;
+                        system("clear");
                     }
                     read.close();
                     add.close();
@@ -307,7 +314,7 @@ int main(){
                     ofstream add;
                     read.open("Jogadores/jogadorDefesa.csv", ios::in);
                     add.open("Jogadores/newjogadorDefesa.csv", ios::app);
-                    cout<<"Insira o nome do jogador Defensivo a deletar: ";
+                    cout << hey::red << "Insira o nome do jogador a deletar: " << hey::off;
                     cin>>nomejogador;
                     for(int i=0;i<jogadorDEF.size();i++){
                         if(jogadorDEF[i].getNome()==nomejogador){
@@ -349,9 +356,17 @@ int main(){
                     }
                     if(count==1){
                         cout<<"Jogador DEFENSOR deletado com sucesso!"<<'\n';
+                        cout << " " << endl;
+                        cout << hey::yellowi << "Aperte qualquer tecla para voltar ao menu inicial: " << hey::off;
+                        cin >> tec;
+                        system("clear");
                     }
                     else{
                         cout<<"Jogador DEFENSOR não encontrado!"<<'\n';
+                        cout << " " << endl;
+                        cout << hey::yellowi << "Aperte qualquer tecla para voltar ao menu inicial: " << hey::off;
+                        cin >> tec;
+                        system("clear");
                     }
                     read.close();
                     add.close();
@@ -366,7 +381,7 @@ int main(){
                     ofstream add;
                     read.open("Jogadores/jogadorGoleiro.csv", ios::in);
                     add.open("Jogadores/newjogadorGoleiro.csv", ios::app);
-                    cout<<"Insira o nome do jogador Goleiro a deletar: ";
+                    cout << hey::red << "Insira o nome do jogador a deletar: " << hey::off;
                     cin>>nomejogador;
                     for(int i=0;i<jogadorGK.size();i++){
                         if(jogadorGK[i].getNome()==nomejogador){
@@ -408,9 +423,17 @@ int main(){
                     }
                     if(count==1){
                         cout<<"Jogador GOLEIRO deletado com sucesso!"<<'\n';
+                        cout << " " << endl;
+                        cout << hey::yellowi << "Aperte qualquer tecla para voltar ao menu inicial: " << hey::off;
+                        cin >> tec;
+                        system("clear");
                     }
                     else{
                         cout<<"Jogador GOLEIRO não encontrado!"<<'\n';
+                        cout << " " << endl;
+                        cout << hey::yellowi << "Aperte qualquer tecla para voltar ao menu inicial: " << hey::off;
+                        cin >> tec;
+                        system("clear");
                     }
                     read.close();
                     add.close();
