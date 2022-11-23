@@ -29,7 +29,7 @@ int main(){
     string tec;
     while (true){
         int menu = menus::menuPrincipal();
-        // int static count = 0; // provisorio, contar linhas no futuro ou guardar valor em txt
+        //int static count = 0; // provisorio, contar linhas no futuro ou guardar valor em txt
         if (menu == 1){     // # Menu jogadores #
             system("clear");
             int jog = menus::menuJogador();
