@@ -13,13 +13,14 @@
 #include <cstdlib>
 #include <string>
 #include <iostream>
+#include "colors.hpp"
 
 using namespace std;
 
 //Função principal.
 int main(){
     system("clear");
-    cout << "## BEM VINDO AO FOOTBALL LEAGUE ##" << endl;
+    cout << hey::greens << "## BEM VINDO AO FOOTBALL LEAGUE ##" << hey::off << endl;
     vector<jogadorAtacante> jogadorATK;
     vector<jogadorDefesa> jogadorDEF;
     vector<jogadorGoleiro> jogadorGK;
@@ -43,10 +44,10 @@ int main(){
                 for(j=jogador.begin();j!=jogador.end();j++){
                 add<<(*j).getNome()<<','<<(*j).getIdade()<<','<<(*j).getHabilidade()<<','<<(*j).getGols()<<','<<(*j).getCamisa()<<','<<(*j).getVelocidade()<<','<<(*j).getTecnica()<<'\n';  //Adição dos dados do objeto ao arquivo CSV.
                 add.close();    //Conclusão da adição ao arquivo.
+                system("clear");
+                cout << hey::green << "Jogador ATACANTE criado com sucesso!" << hey::off << endl;
                 cout << " " << endl;
-                cout << "Jogador ATACANTE criado com sucesso!" << endl;
-                cout << " " << endl;
-                cout << "Aperte qualquer tecla para voltar ao menu inicial: ";
+                cout << hey::yellowi << "Aperte qualquer tecla para voltar ao menu inicial: " << hey::off;
                 cin >> tec;
                 system("clear");
                 }
@@ -60,10 +61,10 @@ int main(){
                 for(j=jogador.begin();j!=jogador.end();j++){
                 add<<(*j).getNome()<<','<<(*j).getIdade()<<','<<(*j).getHabilidade()<<','<<(*j).getGols()<<','<<(*j).getCamisa()<<','<<(*j).getCobertura()<<','<<(*j).getDesarme()<<'\n';  //Adição dos dados do objeto ao arquivo CSV.
                 add.close();    //Conclusão da adição ao arquivo.
+                system("clear");
+                cout << hey::green << "Jogador DEFENSOR criado com sucesso!" << hey::off << endl;
                 cout << " " << endl;
-                cout << "Jogador ATACANTE criado com sucesso!" << endl;
-                cout << " " << endl;
-                cout << "Aperte qualquer tecla para voltar ao menu inicial: ";
+                cout << hey::yellowi << "Aperte qualquer tecla para voltar ao menu inicial: " << hey::off;
                 cin >> tec;
                 system("clear");
                 }
@@ -77,10 +78,10 @@ int main(){
                 for(j=jogador.begin();j!=jogador.end();j++){
                 add<<(*j).getNome()<<','<<(*j).getIdade()<<','<<(*j).getHabilidade()<<','<<(*j).getGols()<<','<<(*j).getCamisa()<<','<<(*j).getReflexos()<<','<<(*j).getAltura()<<'\n';  //Adição dos dados do objeto ao arquivo CSV.
                 add.close();    //Conclusão da adição ao arquivo.
+                system("clear");
+                cout << hey::green << "Jogador GOLEIRO criado com sucesso!" << hey::off << endl;
                 cout << " " << endl;
-                cout << "Jogador GOLEIRO criado com sucesso!" << endl;
-                cout << " " << endl;
-                cout << "Aperte qualquer tecla para voltar ao menu inicial: ";
+                cout << hey::yellowi << "Aperte qualquer tecla para voltar ao menu inicial: " << hey::off;
                 cin >> tec;
                 system("clear");
                 }
@@ -117,8 +118,9 @@ int main(){
                     system("clear");
                     //Inserção do Nome do jogador para lista-lo.
                     string nomeJogador;
-                    cout<<"Insira o nome do jogador a exibir: "<<'\n';
+                    cout<<"Insira o nome do jogador a exibir: ";
                     cin>>nomeJogador;
+                    cout << " " << endl;
                     for(int i=0;i<jogadorATK.size();i++){
                         if(jogadorATK[i].getNome()==nomeJogador){ //Se o índice referente ao nome do objeto for igual ao nome fornecido listamos o jogador.
                             jogadorATK[i].print();
@@ -127,7 +129,8 @@ int main(){
                         //     cout << "Jogador não encontrado" << endl;
                         }
                     }
-                    cout << "Aperte qualquer tecla para voltar ao menu inicial: ";
+                    cout << " " << endl;
+                    cout << hey::yellowi << "Aperte qualquer tecla para voltar ao menu inicial: " << hey::off;
                     cin >> tec;
                     system("clear");
                 }
@@ -161,8 +164,9 @@ int main(){
                     system("clear");
                     //Inserção do Nome do jogador para lista-lo.
                     string nomeJogador;
-                    cout<<"Insira o nome do jogador a exibir: "<<'\n';
+                    cout<<"Insira o nome do jogador a exibir: ";
                     cin>>nomeJogador;
+                    cout << " " << endl;
                     for(int i=0;i<jogadorDEF.size();i++){
                         if(jogadorDEF[i].getNome()==nomeJogador){ //Se o índice referente ao nome do objeto for igual ao nome fornecido listamos o jogador.
                             jogadorDEF[i].print();
@@ -171,7 +175,8 @@ int main(){
                         //     cout << "Jogador não encontrado" << endl;
                         }
                     }
-                    cout << "Aperte qualquer tecla para voltar ao menu inicial: ";
+                    cout << " " << endl;
+                    cout << hey::yellowi << "Aperte qualquer tecla para voltar ao menu inicial: " << hey::off;
                     cin >> tec;
                     system("clear");
                 }
@@ -212,8 +217,9 @@ int main(){
                     system("clear");
                     //Inserção do Nome do jogador para lista-lo.
                     string nomeJogador;
-                    cout<<"Insira o nome do jogador a exibir: "<<'\n';
+                    cout<<"Insira o nome do jogador a exibir: ";
                     cin>>nomeJogador;
+                    cout << " " << endl;
                     for(int i=0;i<jogadorGK.size();i++){
                         if(jogadorGK[i].getNome()==nomeJogador){ //Se o índice referente ao nome do objeto for igual ao nome fornecido listamos o jogador.
                             jogadorGK[i].print();
@@ -222,8 +228,11 @@ int main(){
                         //     cout << "Jogador não encontrado" << endl;
                         }
                     }
-                    cout << "Aperte qualquer tecla para voltar ao menu inicial: ";
+                    cout << " " << endl;
+                    cout << hey::yellowi << "Aperte qualquer tecla para voltar ao menu inicial: " << hey::off;
                     cin >> tec;
+                    system("clear");
+                }else{
                     system("clear");
                 }
             }else if (jog == 5){ //Remover Jogadores.
@@ -231,6 +240,7 @@ int main(){
                 int opt=menus::menuDeleteJogador();
                 if(opt==1){
                     system("clear");
+                    cout << hey::red << "Insira o nome do jogador a deletar: " << hey::off << endl;
                     int count{0};
                     string nomejogador,linha,name;
                     ifstream read;
@@ -239,6 +249,7 @@ int main(){
                     add.open("Jogadores/newjogadorAtacante.csv", ios::app);
                     cout<<"Insira o nome do jogador atacante a deletar: ";
                     cin>>nomejogador;
+                    cout << " " << endl;
                     for(int i=0;i<jogadorATK.size();i++){
                         if(jogadorATK[i].getNome()==nomejogador){
                             jogadorATK.erase(jogadorATK.begin()+i);
@@ -426,9 +437,9 @@ int main(){
                 add.close();
                 }
                 system("clear");
-                cout << "Time registrado com sucesso!" << endl;
+                cout << hey::green << "Time registrado com sucesso!" << hey::off << endl;
                 cout << " " << endl;
-                cout << "Aperte qualquer tecla para voltar ao menu inicial: ";
+                cout << hey::yellowi << "Aperte qualquer tecla para voltar ao menu inicial: " << hey::off;
                 cin >> tec;
                 system("clear");
             }else if(time == 2){  // formar time
@@ -457,7 +468,7 @@ int main(){
                 vector<partidas>::iterator i;
                 vector<partidas>partida;
                 ofstream add;
-                add.open("partidas.csv", ios::app);
+                add.open("Partidas/partidas.csv", ios::app);
                 partida.push_back(partidas());
                 for(i=partida.begin();i!=partida.end();i++){
                 add<<(*i).getDate()<<','<<(*i).getCasa()<<','<<(*i).getVisitante()<<'\n';
@@ -466,7 +477,7 @@ int main(){
                 i->getPlacar();
                 }
                 cout << " " << endl;
-                cout << "Aperte qualquer tecla para voltar ao menu inicial: ";
+                cout << hey::yellowi << "Aperte qualquer tecla para voltar ao menu inicial: " << hey::off;
                 cin >> tec;
                 system("clear");
                 // criar partida
@@ -480,7 +491,7 @@ int main(){
                     cout << "Time visitante venceu a partida" << endl;
                 }
                 cout << " " << endl;
-                cout << "Aperte qualquer tecla para voltar ao menu inicial: ";
+                cout << hey::yellowi << "Aperte qualquer tecla para voltar ao menu inicial: " << hey::off;
                 cin >> tec;
                 system("clear");
                 // iniciar partida
@@ -498,7 +509,7 @@ int main(){
                     // sair int menu = menus::menuPrincipal();
                 }
         }else{         // # Menu Sair #
-            cout << "Você saiu!" << endl;
+            cout << hey::red << "Você saiu! :(" << hey::off << endl;
             return false;
         }
     }
