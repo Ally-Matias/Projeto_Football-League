@@ -207,7 +207,7 @@ int main(){
                              
                         }
                         //Instanciação do jogador com um vector definitivo e com as devidas conversões de tipo.
-                        jogadorATK.push_back(jogadorAtacante(palavras[0],stats[0],stats[1],stats[2],stats[3],stats[4],stats2[0]));
+                        jogadorGK.push_back(jogadorGoleiro(palavras[0],stats[0],stats[1],stats[2],stats[3],stats[4],stats2[0]));
                     }
                     system("clear");
                     //Inserção do Nome do jogador para lista-lo.
@@ -226,37 +226,185 @@ int main(){
                     cin >> tec;
                     system("clear");
                 }
-            }else if (jog == 5){
+            }else if (jog == 5){ //Remover Jogadores.
                 system("clear");
                 int opt=menus::menuDeleteJogador();
                 if(opt==1){
                     system("clear");
-                    string nomejogador;
-                    cout<<"Insira o nome do jogador a deletar: "<<'\n';
+                    int count{0};
+                    string nomejogador,linha,name;
+                    ifstream read;
+                    ofstream add;
+                    read.open("Jogadores/jogadorAtacante.csv", ios::in);
+                    add.open("Jogadores/newjogadorAtacante.csv", ios::app);
+                    cout<<"Insira o nome do jogador atacante a deletar: ";
                     cin>>nomejogador;
                     for(int i=0;i<jogadorATK.size();i++){
                         if(jogadorATK[i].getNome()==nomejogador){
                             jogadorATK.erase(jogadorATK.begin()+i);
-                            ifstream read("Jogadores/jogadorAtacante.csv");
-                            string linha;
-                            while(getline(read, linha)){
-                                palavras.clear();
-                                string temp="";
-                                for(int i = 0;i < linha.size();i++){
-                                    if (linha[i]==','){
-                                        palavras.push_back(temp);
-                                        temp="";
-                                    }
-                                    else{
-                                        temp+=linha[i];
-                                    }
-                                }
-                                if (temp.size()>0){
-                                    palavras.push_back(temp);
-                                }
-                            }
                         }
                     }
+                    while(!read.eof()){
+                        palavras.clear();
+                        getline(read,linha);
+                        string temp="";
+                        for(int i=0;i<linha.size();i++){
+                            if (linha[i]==','){
+                                palavras.push_back(temp);
+                                temp="";
+                            }
+                            else{
+                                temp+=linha[i];
+                            }
+                        }
+                        if(temp.size()>0){
+                            palavras.push_back(temp);
+                        }
+                        int tam_vector=palavras.size();
+                        name=palavras[0];
+                        if(name!=nomejogador){
+                            if(!read.eof()){
+                                for(int i=0;i< tam_vector -1;i++){
+                                add<<palavras[i]<<",";
+                                }
+                                add<<palavras[tam_vector-1]<<'\n';
+                            }
+                        }
+                        else{
+                            count=1;
+                        }
+                        if(read.eof()){
+                            break;
+                        }
+                    }
+                    if(count==1){
+                        cout<<"Jogador ATACANTE deletado com sucesso!"<<'\n';
+                    }
+                    else{
+                        cout<<"Jogador ATACANTE não encontrado!"<<'\n';
+                    }
+                    read.close();
+                    add.close();
+                    remove("Jogadores/jogadorAtacante.csv");
+                    rename("Jogadores/newjogadorAtacante.csv","Jogadores/jogadorAtacante.csv");
+                }
+                else if(opt==2){
+                    system("clear");
+                    int count{0};
+                    string nomejogador,linha,name;
+                    ifstream read;
+                    ofstream add;
+                    read.open("Jogadores/jogadorDefesa.csv", ios::in);
+                    add.open("Jogadores/newjogadorDefesa.csv", ios::app);
+                    cout<<"Insira o nome do jogador Defensivo a deletar: ";
+                    cin>>nomejogador;
+                    for(int i=0;i<jogadorDEF.size();i++){
+                        if(jogadorDEF[i].getNome()==nomejogador){
+                            jogadorDEF.erase(jogadorDEF.begin()+i);
+                        }
+                    }
+                    while(!read.eof()){
+                        palavras.clear();
+                        getline(read,linha);
+                        string temp="";
+                        for(int i=0;i<linha.size();i++){
+                            if (linha[i]==','){
+                                palavras.push_back(temp);
+                                temp="";
+                            }
+                            else{
+                                temp+=linha[i];
+                            }
+                        }
+                        if(temp.size()>0){
+                            palavras.push_back(temp);
+                        }
+                        int tam_vector=palavras.size();
+                        name=palavras[0];
+                        if(name!=nomejogador){
+                            if(!read.eof()){
+                                for(int i=0;i< tam_vector -1;i++){
+                                add<<palavras[i]<<",";
+                                }
+                                add<<palavras[tam_vector-1]<<'\n';
+                            }
+                        }
+                        else{
+                            count=1;
+                        }
+                        if(read.eof()){
+                            break;
+                        }
+                    }
+                    if(count==1){
+                        cout<<"Jogador DEFENSOR deletado com sucesso!"<<'\n';
+                    }
+                    else{
+                        cout<<"Jogador DEFENSOR não encontrado!"<<'\n';
+                    }
+                    read.close();
+                    add.close();
+                    remove("Jogadores/jogadorDefesa.csv");
+                    rename("Jogadores/newjogadorDefesa.csv","Jogadores/jogadorDefesa.csv");
+                }
+                else if(opt==3){
+                    system("clear");
+                    int count{0};
+                    string nomejogador,linha,name;
+                    ifstream read;
+                    ofstream add;
+                    read.open("Jogadores/jogadorGoleiro.csv", ios::in);
+                    add.open("Jogadores/newjogadorGoleiro.csv", ios::app);
+                    cout<<"Insira o nome do jogador Goleiro a deletar: ";
+                    cin>>nomejogador;
+                    for(int i=0;i<jogadorGK.size();i++){
+                        if(jogadorGK[i].getNome()==nomejogador){
+                            jogadorGK.erase(jogadorGK.begin()+i);
+                        }
+                    }
+                    while(!read.eof()){
+                        palavras.clear();
+                        getline(read,linha);
+                        string temp="";
+                        for(int i=0;i<linha.size();i++){
+                            if (linha[i]==','){
+                                palavras.push_back(temp);
+                                temp="";
+                            }
+                            else{
+                                temp+=linha[i];
+                            }
+                        }
+                        if(temp.size()>0){
+                            palavras.push_back(temp);
+                        }
+                        int tam_vector=palavras.size();
+                        name=palavras[0];
+                        if(name!=nomejogador){
+                            if(!read.eof()){
+                                for(int i=0;i< tam_vector -1;i++){
+                                add<<palavras[i]<<",";
+                                }
+                                add<<palavras[tam_vector-1]<<'\n';
+                            }
+                        }
+                        else{
+                            count=1;
+                        }
+                        if(read.eof()){
+                            break;
+                        }
+                    }
+                    if(count==1){
+                        cout<<"Jogador GOLEIRO deletado com sucesso!"<<'\n';
+                    }
+                    else{
+                        cout<<"Jogador GOLEIRO não encontrado!"<<'\n';
+                    }
+                    read.close();
+                    add.close();
+                    remove("Jogadores/jogadorGoleiro.csv");
+                    rename("Jogadores/newjogadorGoleiro.csv","Jogadores/jogadorGoleiro.csv");
                 }
             }else{
                 system("clear");
