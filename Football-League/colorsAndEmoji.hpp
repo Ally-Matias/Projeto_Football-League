@@ -1,7 +1,9 @@
 #pragma once
 #include <iostream>
+#include <map>
+#include <string>
 
-namespace hey {
+namespace hey {   // collors, ele pega as cores do proprio UNIX
                     
   const std::string gray  = "\e[30;10m", // normal
                     grayn = "\e[30;1m", // negrito
@@ -76,4 +78,47 @@ namespace hey {
                     whitec = "\e[38;9m", // cancelado
 
                     off = "\e[m"; // desliga
+}
+
+
+namespace emojicpp {   // emoji
+
+    static std::map<std::string, std::string> EMOJIS = {
+        {":soccer:" , u8"\U000026BD"},
+        {":worried:" , u8"\U0001F61F"}
+    };
+
+        std::string emojize(std::string s, bool escape=true) {
+        int index = -1;
+        int sLen = s.size();
+        for (int i = 0; i < sLen; i++) {
+            if (s[i] == *L":") {
+                // check if colon is escaped
+                if(escape && i!=0 && s[i-1]=='\\')
+                    continue;
+                if (index == -1) {
+                    index = i;
+                }
+                else {
+                    if (i - index==1) {
+                        index = i;
+                        continue;
+                    }
+                    std::map<std::string, std::string>::iterator it;
+                    it = EMOJIS.find(s.substr(index, i - index + 1));
+                    if (it == EMOJIS.end()) {
+                        index = i;
+                        continue;
+                    }
+                    std::string emo = it->second;
+                    s.replace(index, i - index + 1 , emo);
+                    int goBack = i - index + 1 - emo.size();
+                    sLen -= goBack;
+                    i -= goBack;
+                    index = -1;
+                }
+            }
+        }
+        return s;
+    }
 }

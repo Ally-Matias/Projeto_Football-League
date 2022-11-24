@@ -13,14 +13,14 @@
 #include <cstdlib>
 #include <string>
 #include <iostream>
-#include "colors.hpp"
+#include "colorsAndEmoji.hpp"
 
 using namespace std;
 
 //Função principal.
 int main(){
     system("clear");
-    cout << hey::greens << "## BEM VINDO AO FOOTBALL LEAGUE ##" << hey::off << endl;
+    cout << hey::greens << emojicpp::emojize(":soccer: BEM VINDO AO FOOTBALL LEAGUE :soccer:") << hey::off << endl;
     vector<jogadorAtacante> jogadorATK;
     vector<jogadorDefesa> jogadorDEF;
     vector<jogadorGoleiro> jogadorGK;
@@ -30,7 +30,6 @@ int main(){
     string tec;
     while (true){
         int menu = menus::menuPrincipal();
-        //int static count = 0; // provisorio, contar linhas no futuro ou guardar valor em txt
         if (menu == 1){     // # Menu jogadores #
             system("clear");
             int jog = menus::menuJogador();
@@ -442,7 +441,6 @@ int main(){
                 }
             }else{
                 system("clear");
-                // (sair) int menu = menus::menuPrincipal();
             }
 
         }else if(menu == 2){   // # Menu Times #
@@ -467,16 +465,87 @@ int main(){
                 system("clear");
             }else if(time == 2){  // formar time
                 cout << "Formar time não implementado." << endl;
-            }else if(time == 3){    // excluir time
-                cout << "Excluir time não implementado." << endl;
+            }else if(time == 3){    // excluir time     // lembrei q precisa excluir o time com jogadores e tudo, ent primeiro precisa formar o time
+                    // system("clear");
+                    // int count{0};
+                    // string nomeTime,linha,name;
+                    // ifstream read;
+                    // ofstream add;
+                    // read.open("Times/timesNomes..csv", ios::in);
+                    // add.open("Times/timesNomes.csv", ios::app);
+                    // cout << hey::red << "Insira o nome do time a deletar: " << hey::off;
+                    // cin>>nomeTime;
+                    // for(int i=0;i<jogadorGK.size();i++){
+                    //     if(jogadorGK[i].getNome()==nomeTime){
+                    //         jogadorGK.erase(jogadorGK.begin()+i);
+                    //     }
+                    // }
+                    // while(!read.eof()){
+                    //     palavras.clear();
+                    //     getline(read,linha);
+                    //     string temp="";
+                    //     for(int i=0;i<linha.size();i++){
+                    //         if (linha[i]==','){
+                    //             palavras.push_back(temp);
+                    //             temp="";
+                    //         }
+                    //         else{
+                    //             temp+=linha[i];
+                    //         }
+                    //     }
+                    //     if(temp.size()>0){
+                    //         palavras.push_back(temp);
+                    //     }
+                    //     int tam_vector=palavras.size();
+                    //     name=palavras[0];
+                    //     if(name!=nomeTime){
+                    //         if(!read.eof()){
+                    //             for(int i=0;i< tam_vector -1;i++){
+                    //             add<<palavras[i]<<",";
+                    //             }
+                    //             add<<palavras[tam_vector-1]<<'\n';
+                    //         }
+                    //     }
+                    //     else{
+                    //         count=1;
+                    //     }
+                    //     if(read.eof()){
+                    //         break;
+                    //     }
+                    // }
+                    // if(count==1){
+                    //     cout<<"Jogador GOLEIRO deletado com sucesso!"<<'\n';
+                    //     cout << " " << endl;
+                    //     cout << hey::yellowi << "Aperte qualquer tecla para voltar ao menu inicial: " << hey::off;
+                    //     cin >> tec;
+                    //     system("clear");
+                    // }
+                    // else{
+                    //     cout<<"Jogador GOLEIRO não encontrado!"<<'\n';
+                    //     cout << " " << endl;
+                    //     cout << hey::yellowi << "Aperte qualquer tecla para voltar ao menu inicial: " << hey::off;
+                    //     cin >> tec;
+                    //     system("clear");
+                    // }
+                    // read.close();
+                    // add.close();
+                    // remove("Jogadores/jogadorGoleiro.csv");
+                    // rename("Jogadores/newjogadorGoleiro.csv","Jogadores/jogadorGoleiro.csv");
+    
             }else if(time == 4){   // exibir todos os times
+                system("clear");
                 char linha[255];
                 fstream arquivo;
+                cout << hey::grayn << "Os times criados são: " << hey::off << endl;
+                cout << " " << endl;
                 arquivo.open("Times/timesNomes.csv",fstream::in);
                 arquivo.read(linha, 255);
                 cout << linha << endl;
                 arquivo.close();
-                cout << endl;
+                cout << " " << endl;
+                cout << hey::yellowi << "Aperte qualquer tecla para voltar ao menu inicial: " << hey::off;
+                cin >> tec;
+                system("clear");
             }else if(time == 5){  // exibir time
                 cout << "Exibir time não implementado." << endl;
             }else{
@@ -520,7 +589,6 @@ int main(){
                 // iniciar partida
             }else{
                 system("clear");
-               // int menu = menus::menuPrincipal();
             }
         }else if(menu == 4){  // # Menu Dados Gerais #
                 system("clear");
@@ -529,10 +597,9 @@ int main(){
                     cout << "nao implementado ainda!" << endl;
                 }else{
                     system("clear");
-                    // sair int menu = menus::menuPrincipal();
                 }
         }else{         // # Menu Sair #
-            cout << hey::red << "Você saiu! :(" << hey::off << endl;
+            cout << hey::red << emojicpp::emojize("Você saiu! :worried:") << hey::off << endl;
             return false;
         }
     }
