@@ -20,19 +20,26 @@ partidas::partidas(string date, string timeCasa, string timeVisitante){ // :Time
     this->timeVisitante = timeVisitante;
 }
 
-//Métodos
+//Getters e setters
 
-int partidas::golCasa(){
-    placarCasa += 1;
-    return 0;
+// int partidas::getGolCasa(){
+//     cout << placarCasa << endl;
+//     return placarCasa;
+// }
+
+// int partidas::getGolVisitante(){
+//     cout << placarVisitante << endl;
+//     return placarVisitante;
+// }
+
+void partidas::setPlacarCasa(int gol){
+    placarCasa=gol;
 }
 
-int partidas::golVisitante(){
-    placarVisitante += 1;
-    return 0;
+void partidas::setPlacarVisitante(int gol){
+    placarVisitante=gol;
 }
 
-//Getters
 string partidas::getCasa(){
     return timeCasa;
 }
@@ -48,43 +55,3 @@ string partidas::getDate(){
 void partidas::getPlacar(){
     cout << "Data: " << date << "\n" << timeCasa << " " << placarCasa << " x " << placarVisitante << " " << timeVisitante << endl;
 }
-
-
-
-
-
-// partidas::partidas(char date, Time timeCasa, Time timeVisitante):Time(){ // :Time()??
-//     this->date = date;
-//     this->timeCasa = timeCasa;
-//     this->timeVisitante = timeVisitante;
-// }
-
-// //Métodos
-
-// char partidas::getDate(){
-//     return date;
-//     //system("date +%d/%m/%Y");
-// }
-
-// int partidas::golCasa(){
-//     placarCasa += 1;
-//     return 0;
-// }
-
-// int partidas::golVisitante(){
-//     placarVisitante += 1;
-//     return 0;
-// }
-
-// //Getters
-// Time partidas::getCasa(){
-//     return this->timeCasa;
-// }
-
-// Time partidas::getVisitante(){
-//     return this->timeVisitante;
-// }
-
-// string partidas::getPlacar(){
-//  //   cout << timeCasa << " " << placarCasa << " x " << placarVisitante << " " << timeVisitante << endl;
-// }

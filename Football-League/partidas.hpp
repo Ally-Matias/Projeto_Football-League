@@ -21,32 +21,8 @@ class partidas{
         string getVisitante();
         void getPlacar();
         string getDate();
-        int golCasa();
-        int golVisitante();
+        // int getGolCasa();
+        // int getGolVisitante();
+        void setPlacarCasa(int gol);
+        void setPlacarVisitante(int gol);
 };
-
-
-
-
-
-
-
-
-// class partidas: public Time{
-//     protected:
-//         char static date;
-//         Time timeCasa;       // mudar tipo time para string
-//         Time timeVisitante;
-//         int placarCasa;
-//         int placarVisitante;
-//     public:
-//         partidas(){};
-//         partidas(char date, Time timeCasa, Time timeVisitante);
-//         ~partidas(){};
-//         Time getCasa();
-//         Time getVisitante();
-//         string getPlacar();
-//         int golCasa();
-//         int golVisitante();
-//         char static getDate();
-// };

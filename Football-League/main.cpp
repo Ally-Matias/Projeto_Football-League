@@ -465,72 +465,8 @@ int main(){
             }else if(time == 2){  // formar time
                 cout << "Formar time não implementado." << endl;
             }else if(time == 3){    // excluir time     // lembrei q precisa excluir o time com jogadores e tudo, ent primeiro precisa formar o time
-                    // system("clear");
-                    // int count{0};
-                    // string nomeTime,linha,name;
-                    // ifstream read;
-                    // ofstream add;
-                    // read.open("Times/timesNomes..csv", ios::in);
-                    // add.open("Times/timesNomes.csv", ios::app);
-                    // cout << hey::red << "Insira o nome do time a deletar: " << hey::off;
-                    // cin>>nomeTime;
-                    // for(int i=0;i<jogadorGK.size();i++){
-                    //     if(jogadorGK[i].getNome()==nomeTime){
-                    //         jogadorGK.erase(jogadorGK.begin()+i);
-                    //     }
-                    // }
-                    // while(!read.eof()){
-                    //     palavras.clear();
-                    //     getline(read,linha);
-                    //     string temp="";
-                    //     for(int i=0;i<linha.size();i++){
-                    //         if (linha[i]==','){
-                    //             palavras.push_back(temp);
-                    //             temp="";
-                    //         }
-                    //         else{
-                    //             temp+=linha[i];
-                    //         }
-                    //     }
-                    //     if(temp.size()>0){
-                    //         palavras.push_back(temp);
-                    //     }
-                    //     int tam_vector=palavras.size();
-                    //     name=palavras[0];
-                    //     if(name!=nomeTime){
-                    //         if(!read.eof()){
-                    //             for(int i=0;i< tam_vector -1;i++){
-                    //             add<<palavras[i]<<",";
-                    //             }
-                    //             add<<palavras[tam_vector-1]<<'\n';
-                    //         }
-                    //     }
-                    //     else{
-                    //         count=1;
-                    //     }
-                    //     if(read.eof()){
-                    //         break;
-                    //     }
-                    // }
-                    // if(count==1){
-                    //     cout<<"Jogador GOLEIRO deletado com sucesso!"<<'\n';
-                    //     cout << " " << endl;
-                    //     cout << hey::yellowi << "Aperte qualquer tecla para voltar ao menu inicial: " << hey::off;
-                    //     cin >> tec;
-                    //     system("clear");
-                    // }
-                    // else{
-                    //     cout<<"Jogador GOLEIRO não encontrado!"<<'\n';
-                    //     cout << " " << endl;
-                    //     cout << hey::yellowi << "Aperte qualquer tecla para voltar ao menu inicial: " << hey::off;
-                    //     cin >> tec;
-                    //     system("clear");
-                    // }
-                    // read.close();
-                    // add.close();
-                    // remove("Jogadores/jogadorGoleiro.csv");
-                    // rename("Jogadores/newjogadorGoleiro.csv","Jogadores/jogadorGoleiro.csv");
-    
+                
+
             }else if(time == 4){   // exibir todos os times
                 system("clear");
                 char linha[255];
@@ -556,31 +492,76 @@ int main(){
             int partida = menus::menuPartida();
             if(partida == 1){
                 system("clear");
-                vector<partidas>::iterator i;
-                vector<partidas>partida;
-                ofstream add;
-                add.open("Partidas/partidas.csv", ios::app);
-                partida.push_back(partidas());
-                for(i=partida.begin();i!=partida.end();i++){
-                add<<(*i).getDate()<<','<<(*i).getCasa()<<','<<(*i).getVisitante()<<'\n';
-                add.close();
-                cout << " " << endl;
-                i->getPlacar();
+                srand((unsigned) time(NULL));
+                int golCasa = rand() % 8;
+                int golVisitante = rand() % 8;
+                if(golCasa > golVisitante){    // futuramente sera dois randoms para gol time casa, gol time visit. após atribui os valores de gols e vitorias
+                    vector<partidas>::iterator i;
+                    vector<partidas>partida;
+                    ofstream add;
+                    add.open("Partidas/partidas.csv", ios::app);
+                    partida.push_back(partidas());
+                    for(i=partida.begin();i!=partida.end();i++){
+                    add<<(*i).getDate()<<','<<(*i).getCasa()<<','<< golCasa <<','<<(*i).getVisitante()<<','<< golVisitante <<'\n';
+                    add.close();
+                    cout << " " << endl;
+                    i->setPlacarCasa(golCasa);
+                    i->setPlacarVisitante(golVisitante);
+                    cout << "O time da casa venceu a partida!" << endl;
+                    cout << " " << endl;
+                    i->getPlacar();
+                    //cout << "Time Casa venceu a partida!  " << i->getCasa() << golCasa << " x " << golVisitante << i->getVisitante() << endl;
+                    }
+                    cout << " " << endl;
+                    cout << hey::yellowi << "Aperte qualquer tecla para voltar ao menu inicial: " << hey::off;
+                    cin >> tec;
+                    system("clear");
+                }else if(golVisitante > golCasa){ 
+                    vector<partidas>::iterator i;
+                    vector<partidas>partida;
+                    ofstream add;
+                    add.open("Partidas/partidas.csv", ios::app);
+                    partida.push_back(partidas());
+                    for(i=partida.begin();i!=partida.end();i++){
+                    add<<(*i).getDate()<<','<<(*i).getCasa()<<','<< golCasa <<','<<(*i).getVisitante()<<','<< golVisitante <<'\n';
+                    add.close();
+                    cout << " " << endl;
+                    i->setPlacarCasa(golCasa);
+                    i->setPlacarVisitante(golVisitante);
+                    cout << "O time visitante venceu a partida!" << endl;
+                    cout << " " << endl;
+                    i->getPlacar();
+                    //cout << "Time visitante venceu a partida!  " << i->getVisitante() << golVisitante << " x " << golCasa << " Time casa"<< endl;
+                    }
+                    cout << " " << endl;
+                    cout << hey::yellowi << "Aperte qualquer tecla para voltar ao menu inicial: " << hey::off;
+                    cin >> tec;
+                    system("clear");
+                }else{
+                    vector<partidas>::iterator i;
+                    vector<partidas>partida;
+                    ofstream add;
+                    add.open("Partidas/partidas.csv", ios::app);
+                    partida.push_back(partidas());
+                    for(i=partida.begin();i!=partida.end();i++){
+                    add<<(*i).getDate()<<','<<(*i).getCasa()<<','<< golCasa <<','<<(*i).getVisitante()<<','<< golVisitante <<'\n';
+                    add.close();
+                    cout << " " << endl;
+                    i->setPlacarCasa(golCasa);
+                    i->setPlacarVisitante(golVisitante);
+                    cout << "O jogo terminou em empate!" << endl;
+                    cout << " " << endl;
+                    i->getPlacar();
+                    }
+                    cout << " " << endl;
+                    cout << hey::yellowi << "Aperte qualquer tecla para voltar ao menu inicial: " << hey::off;
+                    cin >> tec;
+                    system("clear");
                 }
-                cout << " " << endl;
-                cout << hey::yellowi << "Aperte qualquer tecla para voltar ao menu inicial: " << hey::off;
-                cin >> tec;
-                system("clear");
                 // criar partida
             }else if(partida == 2){
-                system("clear");
-                srand((unsigned) time(NULL));
-                int random = rand() % 2;
-                if(random == 0){    // futuramente sera dois randoms para gol time casa, gol time visit. após atribui os valores de gols e vitorias
-                    cout << "Time Casa venceu a partida" << endl;
-                }else{
-                    cout << "Time visitante venceu a partida" << endl;
-                }
+                cout << "Exibir partida pela data" << endl;
+
                 cout << " " << endl;
                 cout << hey::yellowi << "Aperte qualquer tecla para voltar ao menu inicial: " << hey::off;
                 cin >> tec;
