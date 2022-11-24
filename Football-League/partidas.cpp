@@ -6,7 +6,7 @@
 //Implementação.
 
 partidas::partidas(){
-    cout << "Qual vai ser a data da partida? xx/xx/xxxx : ";
+    cout << "Qual vai ser a data da partida? : ";
     cin >> date;
     cout << "Qual o time da casa? : ";
     cin >> timeCasa;
@@ -14,23 +14,13 @@ partidas::partidas(){
     cin >> timeVisitante;
 }
 
-partidas::partidas(string date, string timeCasa, string timeVisitante){ // :Time()??
+partidas::partidas(string date, string timeCasa, string timeVisitante){
     this->date = date;
     this->timeCasa = timeCasa;
     this->timeVisitante = timeVisitante;
 }
 
-//Getters e setters
-
-// int partidas::getGolCasa(){
-//     cout << placarCasa << endl;
-//     return placarCasa;
-// }
-
-// int partidas::getGolVisitante(){
-//     cout << placarVisitante << endl;
-//     return placarVisitante;
-// }
+//Getters and setters
 
 void partidas::setPlacarCasa(int gol){
     placarCasa=gol;

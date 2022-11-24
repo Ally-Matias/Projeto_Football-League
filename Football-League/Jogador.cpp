@@ -52,7 +52,7 @@ int Jogador::getCamisa(){
 void Jogador::setCamisa(int camisa){
     this->camisa=camisa;
 }
-// int Jogador::somaGols(){}
+
 void Jogador::print(){
     cout<<"Nome: "<<nome<<'\n';
     cout<<"Idade: "<<idade<<'\n';

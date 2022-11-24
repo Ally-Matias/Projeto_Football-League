@@ -37,7 +37,7 @@ int menus::menuJogador(){
     cout << "|   Opção 2 - Jogador defensor   |" << endl;
     cout << "|   Opção 3 - Goleiro            |" << endl;
     cout << "|   Opção 4 - Exibir jogador     |" << endl; 
-    cout << "|   Opção 5 - Remover jogador    |" << endl; // n feito
+    cout << "|   Opção 5 - Remover jogador    |" << endl;
     cout << "|   Opção 6 - Sair               |" << endl;
     cout << "---------------------------------- " << endl;
     cout << " " << endl;
@@ -115,5 +115,3 @@ int menus::menuDeleteJogador(){
 
 
 // possivelmente futuramente o update sera o seguinte: update?: pergunta o nome, faz o delete e cria uma nova instancia, n gostou? só chora
-
-// coisas para ally fazer, o time, o else do tratamento de escessão, e o while de partidas para verificar quando partida pode ser criado.

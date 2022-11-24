@@ -21,7 +21,7 @@ using namespace std;
 int main(){
     system("clear");
     cout << hey::greens << emojicpp::emojize(":soccer: BEM VINDO AO FOOTBALL LEAGUE :soccer:") << hey::off << endl;
-    vector<jogadorAtacante> jogadorATK;
+    vector<jogadorAtacante> partida;
     vector<jogadorDefesa> jogadorDEF;
     vector<jogadorGoleiro> jogadorGK;
     vector<string>palavras;
@@ -112,17 +112,17 @@ int main(){
                         stats.push_back(stoi(palavras[i])); //A função STOI é a responsável por converter STRING para INT. 
                         }
                         //Instanciação do jogador com um vector definitivo e com as devidas conversões de tipo.
-                        jogadorATK.push_back(jogadorAtacante(palavras[0],stats[0],stats[1],stats[2],stats[3],stats[4],stats[5]));
+                        partida.push_back(jogadorAtacante(palavras[0],stats[0],stats[1],stats[2],stats[3],stats[4],stats[5]));
                     }
                     system("clear");
                     //Inserção do Nome do jogador para lista-lo.
-                    string nomeJogador;
+                    string pesquisData;
                     cout<<"Insira o nome do jogador a exibir: ";
-                    cin>>nomeJogador;
+                    cin>>pesquisData;
                     cout << " " << endl;
-                    for(int i=0;i<jogadorATK.size();i++){
-                        if(jogadorATK[i].getNome()==nomeJogador){ //Se o índice referente ao nome do objeto for igual ao nome fornecido listamos o jogador.
-                            jogadorATK[i].print();
+                    for(int i=0;i<partida.size();i++){
+                        if(partida[i].getNome()==pesquisData){ //Se o índice referente ao nome do objeto for igual ao nome fornecido listamos o jogador.
+                            partida[i].print();
                         //     cont += 1;          // futura atualização e finalização
                         // }else if(cont == 0){
                         //     cout << "Jogador não encontrado" << endl;
@@ -162,12 +162,12 @@ int main(){
                     }
                     system("clear");
                     //Inserção do Nome do jogador para lista-lo.
-                    string nomeJogador;
+                    string pesquisData;
                     cout<<"Insira o nome do jogador a exibir: ";
-                    cin>>nomeJogador;
+                    cin>>pesquisData;
                     cout << " " << endl;
                     for(int i=0;i<jogadorDEF.size();i++){
-                        if(jogadorDEF[i].getNome()==nomeJogador){ //Se o índice referente ao nome do objeto for igual ao nome fornecido listamos o jogador.
+                        if(jogadorDEF[i].getNome()==pesquisData){ //Se o índice referente ao nome do objeto for igual ao nome fornecido listamos o jogador.
                             jogadorDEF[i].print();
                         //     cont += 1;          // futura atualização e finalização
                         // }else if(cont == 0){
@@ -215,12 +215,12 @@ int main(){
                     }
                     system("clear");
                     //Inserção do Nome do jogador para lista-lo.
-                    string nomeJogador;
+                    string pesquisData;
                     cout<<"Insira o nome do jogador a exibir: ";
-                    cin>>nomeJogador;
+                    cin>>pesquisData;
                     cout << " " << endl;
                     for(int i=0;i<jogadorGK.size();i++){
-                        if(jogadorGK[i].getNome()==nomeJogador){ //Se o índice referente ao nome do objeto for igual ao nome fornecido listamos o jogador.
+                        if(jogadorGK[i].getNome()==pesquisData){ //Se o índice referente ao nome do objeto for igual ao nome fornecido listamos o jogador.
                             jogadorGK[i].print();
                         //     cont += 1;          // futura atualização e finalização
                         // }else if(cont == 0){
@@ -240,13 +240,13 @@ int main(){
                 if(opt==1){ //Remover Jogador Atacante.
                     system("clear");
                     int count{0}; //Contador.
-                    string nomejogador,linha,name; //Strings para o funcionamento da função excluir.
+                    string pesquisData,linha,name; //Strings para o funcionamento da função excluir.
                     ifstream read; //Objeto de IFSTREAM para leitura do arquivo.
                     ofstream add; //Objeto de OFSTREAM para a modififcação do arquivo.
                     read.open("Jogadores/jogadorAtacante.csv", ios::in); //Leitura do arquivo principal.
                     add.open("Jogadores/newjogadorAtacante.csv", ios::app); //Abertura do arquivo auxiliar.
                     cout << hey::red << "Insira o nome do jogador a deletar: " << hey::off;
-                    cin>>nomejogador;
+                    cin>>pesquisData;
                     cout << " " << endl;
                     //Estrutura para ler o arquivo CSV;
                     while(!read.eof()){ //Enquanto não tiver lido o arquivo inteiro.
@@ -268,7 +268,7 @@ int main(){
                         // Estrutura para a deleção de jogadores.
                         int tam_vector=palavras.size(); //Salvo o tamanho do vetor.
                         name=palavras[0]; //guardo o nome do jogador na variável name.
-                        if(name!=nomejogador){ //Se name for diferente do nomejogador informado.
+                        if(name!=pesquisData){ //Se name for diferente do pesquisData informado.
                             if(!read.eof()){ //Se enquanto não ler o aquivo inteiro.
                                 for(int i=0;i< tam_vector -1;i++){ //Adiciona os jogadores diferentes do informado ao novo arquivo.
                                 add<<palavras[i]<<","; //Adição dos membros que tem vírgula.
@@ -307,13 +307,13 @@ int main(){
                 else if(opt==2){ //Remover Jogador Defensor.
                     system("clear");
                     int count{0}; //Contador.
-                    string nomejogador,linha,name; //Strings para o funcionamento da função excluir.
+                    string pesquisData,linha,name; //Strings para o funcionamento da função excluir.
                     ifstream read; //Objeto de IFSTREAM para leitura do arquivo.
                     ofstream add; //Objeto de OFSTREAM para a modififcação do arquivo.
                     read.open("Jogadores/jogadorDefesa.csv", ios::in); //Leitura do arquivo principal.
                     add.open("Jogadores/newjogadorDefesa.csv", ios::app); //Abertura do arquivo auxiliar.
                     cout << hey::red << "Insira o nome do jogador a deletar: " << hey::off;
-                    cin>>nomejogador;
+                    cin>>pesquisData;
                     cout << " " << endl;
                     //Estrutura para ler o arquivo CSV;
                     while(!read.eof()){ //Enquanto não tiver lido o arquivo inteiro.
@@ -335,7 +335,7 @@ int main(){
                         // Estrutura para a deleção de jogadores.
                         int tam_vector=palavras.size(); //Salvo o tamanho do vetor.
                         name=palavras[0]; //guardo o nome do jogador na variável name.
-                        if(name!=nomejogador){ //Se name for diferente do nomejogador informado.
+                        if(name!=pesquisData){ //Se name for diferente do pesquisData informado.
                             if(!read.eof()){ //Se enquanto não ler o aquivo inteiro.
                                 for(int i=0;i< tam_vector -1;i++){ //Adiciona os jogadores diferentes do informado ao novo arquivo.
                                 add<<palavras[i]<<","; //Adição dos membros que tem vírgula.
@@ -374,13 +374,13 @@ int main(){
                 else if(opt==3){ //Remover Jogador Goleiro.
                     system("clear");
                     int count{0}; //Contador.
-                    string nomejogador,linha,name; //Strings para o funcionamento da função excluir.
+                    string pesquisData,linha,name; //Strings para o funcionamento da função excluir.
                     ifstream read; //Objeto de IFSTREAM para leitura do arquivo.
                     ofstream add; //Objeto de OFSTREAM para a modififcação do arquivo.
                     read.open("Jogadores/jogadorGoleiro.csv", ios::in); //Leitura do arquivo principal.
                     add.open("Jogadores/newjogadorGoleiro.csv", ios::app); //Abertura do arquivo auxiliar.
                     cout << hey::red << "Insira o nome do jogador a deletar: " << hey::off;
-                    cin>>nomejogador;
+                    cin>>pesquisData;
                     cout << " " << endl;
                     //Estrutura para ler o arquivo CSV;
                     while(!read.eof()){ //Enquanto não tiver lido o arquivo inteiro.
@@ -402,7 +402,7 @@ int main(){
                         // Estrutura para a deleção de jogadores.
                         int tam_vector=palavras.size(); //Salvo o tamanho do vetor.
                         name=palavras[0]; //guardo o nome do jogador na variável name.
-                        if(name!=nomejogador){ //Se name for diferente do nomejogador informado.
+                        if(name!=pesquisData){ //Se name for diferente do pesquisData informado.
                             if(!read.eof()){ //Se enquanto não ler o aquivo inteiro.
                                 for(int i=0;i< tam_vector -1;i++){ //Adiciona os jogadores diferentes do informado ao novo arquivo.
                                 add<<palavras[i]<<","; //Adição dos membros que tem vírgula.
@@ -510,7 +510,6 @@ int main(){
                     cout << "O time da casa venceu a partida!" << endl;
                     cout << " " << endl;
                     i->getPlacar();
-                    //cout << "Time Casa venceu a partida!  " << i->getCasa() << golCasa << " x " << golVisitante << i->getVisitante() << endl;
                     }
                     cout << " " << endl;
                     cout << hey::yellowi << "Aperte qualquer tecla para voltar ao menu inicial: " << hey::off;
@@ -531,7 +530,6 @@ int main(){
                     cout << "O time visitante venceu a partida!" << endl;
                     cout << " " << endl;
                     i->getPlacar();
-                    //cout << "Time visitante venceu a partida!  " << i->getVisitante() << golVisitante << " x " << golCasa << " Time casa"<< endl;
                     }
                     cout << " " << endl;
                     cout << hey::yellowi << "Aperte qualquer tecla para voltar ao menu inicial: " << hey::off;
@@ -560,13 +558,21 @@ int main(){
                 }
                 // criar partida
             }else if(partida == 2){
-                cout << "Exibir partida pela data" << endl;
+                string dat;
+                char linha[255];
+                fstream arquivo;
+                cout << hey::grayn << "As datas das partidas são: " << hey::off << endl;
+                cout << " " << endl;
+                arquivo.open("Partidas/partidas.csv",fstream::in);
+                arquivo.read(linha, 255);
+                cout << linha << endl;
+                arquivo.close();
 
                 cout << " " << endl;
                 cout << hey::yellowi << "Aperte qualquer tecla para voltar ao menu inicial: " << hey::off;
                 cin >> tec;
                 system("clear");
-                // iniciar partida
+
             }else{
                 system("clear");
             }

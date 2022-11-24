@@ -21,8 +21,6 @@ class partidas{
         string getVisitante();
         void getPlacar();
         string getDate();
-        // int getGolCasa();
-        // int getGolVisitante();
         void setPlacarCasa(int gol);
         void setPlacarVisitante(int gol);
 };
