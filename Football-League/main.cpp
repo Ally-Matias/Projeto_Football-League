@@ -239,44 +239,41 @@ int main(){
                 int opt=menus::menuDeleteJogador();
                 if(opt==1){
                     system("clear");
-                    int count{0};
-                    string nomejogador,linha,name;
-                    ifstream read;
-                    ofstream add;
-                    read.open("Jogadores/jogadorAtacante.csv", ios::in);
-                    add.open("Jogadores/newjogadorAtacante.csv", ios::app);
+                    int count{0}; //Contador.
+                    string nomejogador,linha,name; //Strings para o funcionamento da função excluir.
+                    ifstream read; //Objeto de IFSTREAM para leitura do arquivo.
+                    ofstream add; //Objeto de OFSTREAM para a modififcação do arquivo.
+                    read.open("Jogadores/jogadorAtacante.csv", ios::in); //Leitura do arquivo principal.
+                    add.open("Jogadores/newjogadorAtacante.csv", ios::app); //Abertura do arquivo auxiliar.
                     cout << hey::red << "Insira o nome do jogador a deletar: " << hey::off;
                     cin>>nomejogador;
                     cout << " " << endl;
-                    for(int i=0;i<jogadorATK.size();i++){
-                        if(jogadorATK[i].getNome()==nomejogador){
-                            jogadorATK.erase(jogadorATK.begin()+i);
-                        }
-                    }
-                    while(!read.eof()){
-                        palavras.clear();
-                        getline(read,linha);
+                    //Estrutura para ler o arquivo CSV;
+                    while(!read.eof()){ //Enquanto não tiver lido o arquivo inteiro.
+                        palavras.clear(); //Limpeza do vetor.
+                        getline(read,linha); //le o fluxo de dados do arquivo TXT e coloca as linhas na string.
                         string temp="";
                         for(int i=0;i<linha.size();i++){
-                            if (linha[i]==','){
+                            if (linha[i]==','){ //Se a vírgula for detectada adicionamos um espaço vazio (temp) ao vetor.
                                 palavras.push_back(temp);
                                 temp="";
                             }
                             else{
-                                temp+=linha[i];
+                                temp+=linha[i]; // caso não haja vírgula unimos os caracteres com com a váriavel temp.
                             }
                         }
                         if(temp.size()>0){
                             palavras.push_back(temp);
                         }
-                        int tam_vector=palavras.size();
-                        name=palavras[0];
-                        if(name!=nomejogador){
-                            if(!read.eof()){
-                                for(int i=0;i< tam_vector -1;i++){
-                                add<<palavras[i]<<",";
+                        // Estrutura para a deleção de jogadores.
+                        int tam_vector=palavras.size(); //Salvo o tamanho do vetor.
+                        name=palavras[0]; //guardo o nome do jogador na variável name.
+                        if(name!=nomejogador){ //Se name for diferente do nomejogador informado.
+                            if(!read.eof()){ //Se enquanto não ler o aquivo inteiro.
+                                for(int i=0;i< tam_vector -1;i++){ //Adiciona os jogadores diferentes do informado ao novo arquivo.
+                                add<<palavras[i]<<","; //Adição dos membros que tem vírgula.
                                 }
-                                add<<palavras[tam_vector-1]<<'\n';
+                                add<<palavras[tam_vector-1]<<'\n'; //Adição do ultimo membro do vetor.
                             }
                         }
                         else{
@@ -286,6 +283,7 @@ int main(){
                             break;
                         }
                     }
+                    //Tratamento de casos.
                     if(count==1){
                         cout<<"Jogador ATACANTE deletado com sucesso!"<<'\n';
                         cout << " " << endl;
@@ -300,50 +298,49 @@ int main(){
                         cin >> tec;
                         system("clear");
                     }
-                    read.close();
-                    add.close();
-                    remove("Jogadores/jogadorAtacante.csv");
-                    rename("Jogadores/newjogadorAtacante.csv","Jogadores/jogadorAtacante.csv");
+                    //Finalização 
+                    read.close(); //Close da leitura.
+                    add.close(); //Close das modificações nos arquivos.
+                    remove("Jogadores/jogadorAtacante.csv"); //Remove do Arquivo principal.
+                    rename("Jogadores/newjogadorAtacante.csv","Jogadores/jogadorAtacante.csv"); //Arquivo temporário se torna o arquivo principal.
                 }
                 else if(opt==2){
                     system("clear");
-                    int count{0};
-                    string nomejogador,linha,name;
-                    ifstream read;
-                    ofstream add;
-                    read.open("Jogadores/jogadorDefesa.csv", ios::in);
-                    add.open("Jogadores/newjogadorDefesa.csv", ios::app);
+                    int count{0}; //Contador.
+                    string nomejogador,linha,name; //Strings para o funcionamento da função excluir.
+                    ifstream read; //Objeto de IFSTREAM para leitura do arquivo.
+                    ofstream add; //Objeto de OFSTREAM para a modififcação do arquivo.
+                    read.open("Jogadores/jogadorDefesa.csv", ios::in); //Leitura do arquivo principal.
+                    add.open("Jogadores/newjogadorDefesa.csv", ios::app); //Abertura do arquivo auxiliar.
                     cout << hey::red << "Insira o nome do jogador a deletar: " << hey::off;
                     cin>>nomejogador;
-                    for(int i=0;i<jogadorDEF.size();i++){
-                        if(jogadorDEF[i].getNome()==nomejogador){
-                            jogadorDEF.erase(jogadorDEF.begin()+i);
-                        }
-                    }
-                    while(!read.eof()){
-                        palavras.clear();
-                        getline(read,linha);
+                    cout << " " << endl;
+                    //Estrutura para ler o arquivo CSV;
+                    while(!read.eof()){ //Enquanto não tiver lido o arquivo inteiro.
+                        palavras.clear(); //Limpeza do vetor.
+                        getline(read,linha); //le o fluxo de dados do arquivo TXT e coloca as linhas na string.
                         string temp="";
                         for(int i=0;i<linha.size();i++){
-                            if (linha[i]==','){
+                            if (linha[i]==','){ //Se a vírgula for detectada adicionamos um espaço vazio (temp) ao vetor.
                                 palavras.push_back(temp);
                                 temp="";
                             }
                             else{
-                                temp+=linha[i];
+                                temp+=linha[i]; // caso não haja vírgula unimos os caracteres com com a váriavel temp.
                             }
                         }
                         if(temp.size()>0){
                             palavras.push_back(temp);
                         }
-                        int tam_vector=palavras.size();
-                        name=palavras[0];
-                        if(name!=nomejogador){
-                            if(!read.eof()){
-                                for(int i=0;i< tam_vector -1;i++){
-                                add<<palavras[i]<<",";
+                        // Estrutura para a deleção de jogadores.
+                        int tam_vector=palavras.size(); //Salvo o tamanho do vetor.
+                        name=palavras[0]; //guardo o nome do jogador na variável name.
+                        if(name!=nomejogador){ //Se name for diferente do nomejogador informado.
+                            if(!read.eof()){ //Se enquanto não ler o aquivo inteiro.
+                                for(int i=0;i< tam_vector -1;i++){ //Adiciona os jogadores diferentes do informado ao novo arquivo.
+                                add<<palavras[i]<<","; //Adição dos membros que tem vírgula.
                                 }
-                                add<<palavras[tam_vector-1]<<'\n';
+                                add<<palavras[tam_vector-1]<<'\n'; //Adição do ultimo membro do vetor.
                             }
                         }
                         else{
@@ -353,6 +350,7 @@ int main(){
                             break;
                         }
                     }
+                    //Tratamento de casos.
                     if(count==1){
                         cout<<"Jogador DEFENSOR deletado com sucesso!"<<'\n';
                         cout << " " << endl;
@@ -367,50 +365,49 @@ int main(){
                         cin >> tec;
                         system("clear");
                     }
-                    read.close();
-                    add.close();
-                    remove("Jogadores/jogadorDefesa.csv");
-                    rename("Jogadores/newjogadorDefesa.csv","Jogadores/jogadorDefesa.csv");
+                    //Finalização 
+                    read.close(); //Close da leitura.
+                    add.close(); //Close das modificações nos arquivos.
+                    remove("Jogadores/jogadorDefesa.csv"); //Remove do Arquivo principal.
+                    rename("Jogadores/newjogadorDefesa.csv","Jogadores/jogadorDefesa.csv"); //Arquivo temporário se torna o arquivo principal.
                 }
                 else if(opt==3){
                     system("clear");
-                    int count{0};
-                    string nomejogador,linha,name;
-                    ifstream read;
-                    ofstream add;
-                    read.open("Jogadores/jogadorGoleiro.csv", ios::in);
-                    add.open("Jogadores/newjogadorGoleiro.csv", ios::app);
+                    int count{0}; //Contador.
+                    string nomejogador,linha,name; //Strings para o funcionamento da função excluir.
+                    ifstream read; //Objeto de IFSTREAM para leitura do arquivo.
+                    ofstream add; //Objeto de OFSTREAM para a modififcação do arquivo.
+                    read.open("Jogadores/jogadorGoleiro.csv", ios::in); //Leitura do arquivo principal.
+                    add.open("Jogadores/newjogadorGoleiro.csv", ios::app); //Abertura do arquivo auxiliar.
                     cout << hey::red << "Insira o nome do jogador a deletar: " << hey::off;
                     cin>>nomejogador;
-                    for(int i=0;i<jogadorGK.size();i++){
-                        if(jogadorGK[i].getNome()==nomejogador){
-                            jogadorGK.erase(jogadorGK.begin()+i);
-                        }
-                    }
-                    while(!read.eof()){
-                        palavras.clear();
-                        getline(read,linha);
+                    cout << " " << endl;
+                    //Estrutura para ler o arquivo CSV;
+                    while(!read.eof()){ //Enquanto não tiver lido o arquivo inteiro.
+                        palavras.clear(); //Limpeza do vetor.
+                        getline(read,linha); //le o fluxo de dados do arquivo TXT e coloca as linhas na string.
                         string temp="";
                         for(int i=0;i<linha.size();i++){
-                            if (linha[i]==','){
+                            if (linha[i]==','){ //Se a vírgula for detectada adicionamos um espaço vazio (temp) ao vetor.
                                 palavras.push_back(temp);
                                 temp="";
                             }
                             else{
-                                temp+=linha[i];
+                                temp+=linha[i]; // caso não haja vírgula unimos os caracteres com com a váriavel temp.
                             }
                         }
                         if(temp.size()>0){
                             palavras.push_back(temp);
                         }
-                        int tam_vector=palavras.size();
-                        name=palavras[0];
-                        if(name!=nomejogador){
-                            if(!read.eof()){
-                                for(int i=0;i< tam_vector -1;i++){
-                                add<<palavras[i]<<",";
+                        // Estrutura para a deleção de jogadores.
+                        int tam_vector=palavras.size(); //Salvo o tamanho do vetor.
+                        name=palavras[0]; //guardo o nome do jogador na variável name.
+                        if(name!=nomejogador){ //Se name for diferente do nomejogador informado.
+                            if(!read.eof()){ //Se enquanto não ler o aquivo inteiro.
+                                for(int i=0;i< tam_vector -1;i++){ //Adiciona os jogadores diferentes do informado ao novo arquivo.
+                                add<<palavras[i]<<","; //Adição dos membros que tem vírgula.
                                 }
-                                add<<palavras[tam_vector-1]<<'\n';
+                                add<<palavras[tam_vector-1]<<'\n'; //Adição do ultimo membro do vetor.
                             }
                         }
                         else{
@@ -420,6 +417,7 @@ int main(){
                             break;
                         }
                     }
+                    //Tratamento de casos.
                     if(count==1){
                         cout<<"Jogador GOLEIRO deletado com sucesso!"<<'\n';
                         cout << " " << endl;
@@ -434,10 +432,11 @@ int main(){
                         cin >> tec;
                         system("clear");
                     }
-                    read.close();
-                    add.close();
-                    remove("Jogadores/jogadorGoleiro.csv");
-                    rename("Jogadores/newjogadorGoleiro.csv","Jogadores/jogadorGoleiro.csv");
+                    //Finalização 
+                    read.close(); //Close da leitura.
+                    add.close(); //Close das modificações nos arquivos.
+                    remove("Jogadores/jogadorGoleiro.csv"); //Remove do Arquivo principal.
+                    rename("Jogadores/newjogadorGoleiro.csv","Jogadores/jogadorGoleiro.csv"); //Arquivo temporário se torna o arquivo principal.
                 }
             }else{
                 system("clear");
