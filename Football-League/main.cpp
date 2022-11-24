@@ -237,7 +237,7 @@ int main(){
             }else if (jog == 5){ //Remover Jogadores.
                 system("clear");
                 int opt=menus::menuDeleteJogador();
-                if(opt==1){
+                if(opt==1){ //Remover Jogador Atacante.
                     system("clear");
                     int count{0}; //Contador.
                     string nomejogador,linha,name; //Strings para o funcionamento da função excluir.
@@ -304,7 +304,7 @@ int main(){
                     remove("Jogadores/jogadorAtacante.csv"); //Remove do Arquivo principal.
                     rename("Jogadores/newjogadorAtacante.csv","Jogadores/jogadorAtacante.csv"); //Arquivo temporário se torna o arquivo principal.
                 }
-                else if(opt==2){
+                else if(opt==2){ //Remover Jogador Defensor.
                     system("clear");
                     int count{0}; //Contador.
                     string nomejogador,linha,name; //Strings para o funcionamento da função excluir.
@@ -371,7 +371,7 @@ int main(){
                     remove("Jogadores/jogadorDefesa.csv"); //Remove do Arquivo principal.
                     rename("Jogadores/newjogadorDefesa.csv","Jogadores/jogadorDefesa.csv"); //Arquivo temporário se torna o arquivo principal.
                 }
-                else if(opt==3){
+                else if(opt==3){ //Remover Jogador Goleiro.
                     system("clear");
                     int count{0}; //Contador.
                     string nomejogador,linha,name; //Strings para o funcionamento da função excluir.
