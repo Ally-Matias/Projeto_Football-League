@@ -475,7 +475,42 @@ int main(){
                 system("clear");
                 times.clear();
             }else if(time == 2){  // formar time
-                cout << "Formar time não implementado." << endl;
+                int count{0};
+                string nometime,nomejogador;
+                cout<<"Digite o nome do time que deseja formar: "<<'\n';
+                cin>>nometime;
+                //Leitura do arquivo de times para forma-lo.
+                ifstream read("Times/timesNomes.csv"); //Objeto ifstream para a leitura do arquivo csv.
+                    string linha; //variável para receber caracteres ao rodar o while.
+                    while(getline(read, linha)){ //Lendo o fluxo de texto e salvando na variável linha.
+                        palavras.clear(); // Limpando o vector palavras.
+                        string temp="";
+                        for(int i = 0;i < linha.size();i++){
+                            if (linha[i]==' '){ //Se a vírgula for detectada adicionamos o texto anterior.
+                                palavras.push_back(temp);
+                                temp="";
+                            }
+                            else{
+                                temp+=linha[i]; //Caso não haja vírgula a variável temp recebe o conteúdo da linha.
+                            }
+                        }
+                        if (temp.size()>0){
+                            palavras.push_back(temp);
+                        }
+                        for(int i=0;i<palavras.size();i++){
+                            if(palavras[i]==nometime){
+                                ofstream add;
+                                ofstream add2;
+                                add.open(nometime, ios::app);
+                                //menu
+                                ifstream read("Times/jogadorAacante.csv");
+                                cin>>nomejogador;
+                                //estrutura para ler o arquivo de jogador e o adiciona no vetor de jogador pertencente ao time.
+                                
+
+                            }
+                        }
+                    }
             }else if(time == 3){    // excluir time     
                 int count{0}; //Contador.
                     string pesquisData,linha,name; //Strings para o funcionamento da função excluir.
