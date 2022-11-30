@@ -11,6 +11,7 @@ class menus{
         int static menuListJogador();
         int static menuDeleteJogador();
         int static menuTime();
+        int static menuAddJogadoresTime();
         int static menuPartida();
         int static menuDadosG();
 };
@@ -111,6 +112,19 @@ int menus::menuDeleteJogador(){
     int opcao;
     cin >> opcao;
     return opcao;  
+};
+int menus::menuAddJogadoresTime(){
+    cout << " " << endl;
+    cout << "------------ " << hey::grayn << "ADICIONAR JOGADOR" << hey::off << " ----------- " << endl;
+    cout << "|  Opção 1 - Adicionar Jogador atacante  |" << endl;
+    cout << "|  Opção 2 - Adicionar Jogador defensor  |" << endl;
+    cout << "|  Opção 3 - Adicionar Goleiro           |" << endl;
+    cout << "|  Opção 4 - Sair                        |" << endl;
+    cout << "------------------------------------------" << endl;
+    cout << " " << endl;
+    int opcao;
+    cin >> opcao;
+    return opcao;
 };
 
 

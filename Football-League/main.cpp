@@ -96,7 +96,7 @@ int main(){
                         palavras.clear(); // Limpando o vector palavras.
                         string temp="";
                         for(int i = 0;i < linha.size();i++){
-                            if (linha[i]==','){ //Se a vírgula for detectada adiconamos o texto anterior.
+                            if (linha[i]==','){ //Se a vírgula for detectada adicionamos o texto anterior.
                                 palavras.push_back(temp);
                                 temp="";
                             }
@@ -210,7 +210,7 @@ int main(){
                         vector<float>stats2; //Vetor de floats; 
                         for(int i=1;i < palavras.size();i++){ //Pulamos o índice [0] pois nele é contido o nome do Jogador. 
                             if(i==6){
-                                stats2.push_back(stof(palavras[6]));
+                                stats2.push_back(stof(palavras[6])); //A função STOF é a responsável por converter STRING para INT.
                             }
                             else{
                                 stats.push_back(stoi(palavras[i])); //A função STOI é a responsável por converter STRING para INT.
@@ -450,7 +450,6 @@ int main(){
             }else{
                 system("clear");
             }
-
         }else if(menu == 2){   // # Menu Times #
             system("clear");
             int time = menus::menuTime();
@@ -475,42 +474,130 @@ int main(){
                 system("clear");
                 times.clear();
             }else if(time == 2){  // formar time
+                ofstream add;
                 int count{0};
                 string nometime,nomejogador;
+                system("clear");
                 cout<<"Digite o nome do time que deseja formar: "<<'\n';
                 cin>>nometime;
+                system("clear");
                 //Leitura do arquivo de times para forma-lo.
                 ifstream read("Times/timesNomes.csv"); //Objeto ifstream para a leitura do arquivo csv.
-                    string linha; //variável para receber caracteres ao rodar o while.
-                    while(getline(read, linha)){ //Lendo o fluxo de texto e salvando na variável linha.
-                        palavras.clear(); // Limpando o vector palavras.
-                        string temp="";
-                        for(int i = 0;i < linha.size();i++){
-                            if (linha[i]==' '){ //Se a vírgula for detectada adicionamos o texto anterior.
-                                palavras.push_back(temp);
-                                temp="";
-                            }
-                            else{
-                                temp+=linha[i]; //Caso não haja vírgula a variável temp recebe o conteúdo da linha.
-                            }
-                        }
-                        if (temp.size()>0){
+                string linha; //variável para receber caracteres ao rodar o while.
+                while(getline(read, linha)){ //Lendo o fluxo de texto e salvando na variável linha.
+                    palavras.clear(); // Limpando o vector palavras.
+                    string temp="";
+                    for(int i = 0;i < linha.size();i++){
+                        if (linha[i]==' '){ //Se a vírgula for detectada adicionamos o texto anterior.
                             palavras.push_back(temp);
+                            temp="";
                         }
-                        for(int i=0;i<palavras.size();i++){
-                            if(palavras[i]==nometime){
-                                ofstream add;
-                                ofstream add2;
-                                add.open(nometime, ios::app);
-                                //menu
-                                ifstream read("Times/jogadorAacante.csv");
-                                cin>>nomejogador;
-                                //estrutura para ler o arquivo de jogador e o adiciona no vetor de jogador pertencente ao time.
-                                
-
-                            }
+                        else{
+                            temp+=linha[i]; //Caso não haja vírgula a variável temp recebe o conteúdo da linha.
                         }
                     }
+                    if (temp.size()>0){
+                        palavras.push_back(temp);
+                    }
+                } 
+                for(int i=0;i<palavras.size();i++){
+                    if(palavras[i]==nometime){
+                        add.open(nometime, ios::app);
+                        int opt=menus::menuAddJogadoresTime();
+                        if(opt==1){
+                            system("clear");
+                            ifstream read("Jogadores/jogadorAtacante.csv");
+                            cout<<"Insira o nome do jogador a inserir: "<<'\n';
+                            cin>>nomejogador;
+                            system("clear");
+                            while(getline(read, linha)){ //Lendo o fluxo de texto e salvando na variável linha.
+                                palavras.clear(); // Limpando o vector palavras.
+                                string temp="";
+                                for(int i = 0;i < linha.size();i++){
+                                    if (linha[i]==','){ //Se a vírgula for detectada adicionamos o texto anterior.
+                                        palavras.push_back(temp);
+                                        temp="";
+                                    }
+                                    else{
+                                        temp+=linha[i]; //Caso não haja vírgula a variável temp recebe o conteúdo da linha.
+                                    }
+                                }
+                                if (temp.size()>0){
+                                    palavras.push_back(temp);
+                                }
+                                //Após a criação do vetor palavras, temos que converter os valores que estão com o type STRING para o type INT.
+                                vector<int> stats; //Vetor de inteiros;
+                                for(int i=1;i < palavras.size();i++){ //Pulamos o índice [0] pois nele é contido o nome do Jogador. 
+                                stats.push_back(stoi(palavras[i])); //A função STOI é a responsável por converter STRING para INT. 
+                                }
+                                //Instanciação do jogador com um vector definitivo e com as devidas conversões de tipo.
+                                jogadorATK.push_back(jogadorAtacante(palavras[0],stats[0],stats[1],stats[2],stats[3],stats[4],stats[5]));
+                            }
+                            for(int i=0;i<jogadorATK.size();i++){
+                                if(jogadorATK[i].getNome()==nomejogador){ //Se o índice referente ao nome do objeto for igual ao nome fornecido listamos o jogador.
+                                add<<jogadorATK[i].getNome()<<','<<jogadorATK[i].getIdade()<<','<<jogadorATK[i].getHabilidade()<<','<<jogadorATK[i].getGols()<<','<<jogadorATK[i].getCamisa()<<','<<jogadorATK[i].getVelocidade()<<','<<jogadorATK[i].getTecnica()<<'\n';
+                                count=1;
+                                }
+                            }
+                            if(count!=1){
+                                cout<<"Jogador Inexistente."<<'\n';
+                            }
+                            jogadorATK.clear();
+                            add.close();
+                        }
+                        else if(opt==2){
+                            system("clear");
+                            ifstream read("Jogadores/jogadorDefesa.csv");
+                            cout<<"Insira o nome do jogador a inserir: "<<'\n';
+                            cin>>nomejogador;
+                            system("clear");
+                            while(getline(read, linha)){ //Lendo o fluxo de texto e salvando na variável linha.
+                                palavras.clear(); // Limpando o vector palavras.
+                                string temp="";
+                                for(int i = 0;i < linha.size();i++){
+                                    if (linha[i]==','){ //Se a vírgula for detectada adicionamos o texto anterior.
+                                        palavras.push_back(temp);
+                                        temp="";
+                                    }
+                                    else{
+                                        temp+=linha[i]; //Caso não haja vírgula a variável temp recebe o conteúdo da linha.
+                                    }
+                                }
+                                if (temp.size()>0){
+                                    palavras.push_back(temp);
+                                }
+                                //Após a criação do vetor palavras, temos que converter os valores que estão com o type STRING para o type INT.
+                                vector<int> stats; //Vetor de inteiros;
+                                for(int i=1;i < palavras.size();i++){ //Pulamos o índice [0] pois nele é contido o nome do Jogador. 
+                                stats.push_back(stoi(palavras[i])); //A função STOI é a responsável por converter STRING para INT. 
+                                }
+                                //Instanciação do jogador com um vector definitivo e com as devidas conversões de tipo.
+                                jogadorDEF.push_back(jogadorDefesa(palavras[0],stats[0],stats[1],stats[2],stats[3],stats[4],stats[5]));
+                            }
+                            for(int i=0;i<jogadorDEF.size();i++){
+                                if(jogadorDEF[i].getNome()==nomejogador){ //Se o índice referente ao nome do objeto for igual ao nome fornecido listamos o jogador.
+                                add<<jogadorDEF[i].getNome()<<','<<jogadorDEF[i].getIdade()<<','<<jogadorDEF[i].getHabilidade()<<','<<jogadorDEF[i].getGols()<<','<<jogadorDEF[i].getCamisa()<<','<<jogadorDEF[i].getCobertura()<<','<<jogadorDEF[i].getDesarme()<<'\n';
+                                count=1;
+                                }
+                            }
+                            if(count!=1){
+                                cout<<"Jogador Inexistente."<<'\n';
+                            }
+                            jogadorDEF.clear();
+                            add.close();
+                        }
+                        else if(opt==3){
+
+                        }
+                        else{
+
+                        }
+                        count=1;
+                    }
+                }
+                if(count!=1){
+                    cout<<"Time Inexistente."<<'\n';
+                }
             }else if(time == 3){    // excluir time     
                 int count{0}; //Contador.
                     string pesquisData,linha,name; //Strings para o funcionamento da função excluir.

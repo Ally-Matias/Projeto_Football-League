@@ -1,7 +1,12 @@
 //Prototipação da classe Time
 //Includes.
 #pragma once
+#include "Jogador.hpp"
+#include "jogadorAtacante.hpp"
+#include "jogadorDefesa.hpp"
+#include "jogadorGoleiro.hpp"
 #include <iostream>
+#include <vector>
 using namespace std;
 
 //classe.
@@ -14,6 +19,9 @@ protected:
     int empates = 0;
 
 public:
+    vector<jogadorAtacante> jogadorataque;
+    vector<jogadorDefesa> jogadordefesa;
+    vector<jogadorGoleiro> jogadorgoleiro;
     Time();
     Time(string nome);
     ~Time(){};
