@@ -481,7 +481,7 @@ int main(){
                 cout<<"Digite o nome do time que deseja formar: "<<'\n';
                 cin>>nometime;
                 system("clear");
-                //Leitura do arquivo de times para forma-lo.
+                //Leitura do arquivo de times para forma-lo.a
                 ifstream read("Times/timesNomes.csv"); //Objeto ifstream para a leitura do arquivo csv.
                 string linha; //variável para receber caracteres ao rodar o while.
                 while(getline(read, linha)){ //Lendo o fluxo de texto e salvando na variável linha.
