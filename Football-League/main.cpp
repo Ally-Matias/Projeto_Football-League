@@ -635,9 +635,6 @@ int main(){
                             jogadorGK.clear();
                             add.close();
                         }
-                        else{
-
-                        }
                         count=1;
                     }
                 }
