@@ -776,7 +776,7 @@ int main(){
         }else if(menu == 3){   // # Menu partida #
             system("clear");
             int partida = menus::menuPartida();
-            if(partida == 1){
+            if(partida == 1){      // criar partida
                 system("clear");
                 srand((unsigned) time(NULL));
                 int golCasa = rand() % 8;
@@ -785,14 +785,20 @@ int main(){
                     vector<partidas>::iterator i;
                     vector<partidas>partida;
                     ofstream add;
+                    string dataS = "Data: ";
+                    string venc = " | Vencedor: ";
+                    string perd = " | Perdedor: ";
+                    string gols = " | Gols: ";
                     add.open("Partidas/partidas.csv", ios::app);
                     partida.push_back(partidas());
                     for(i=partida.begin();i!=partida.end();i++){
-                    add<<(*i).getDate()<<','<<(*i).getCasa()<<','<< golCasa <<','<<(*i).getVisitante()<<','<< golVisitante <<'\n';
+                        add<<dataS<<(*i).getDate()<<venc<<(*i).getCasa()<<gols<< golCasa <<perd<<(*i).getVisitante()<<gols<< golVisitante <<'\n';
+                    // add<<(*i).getDate()<<','<<(*i).getCasa()<<','<< golCasa <<','<<(*i).getVisitante()<<','<< golVisitante <<'\n';
                     add.close();
                     cout << " " << endl;
                     i->setPlacarCasa(golCasa);
                     i->setPlacarVisitante(golVisitante);
+                    system("clear");
                     cout << "O time da casa venceu a partida!" << endl;
                     cout << " " << endl;
                     i->getPlacar();
@@ -805,14 +811,19 @@ int main(){
                     vector<partidas>::iterator i;
                     vector<partidas>partida;
                     ofstream add;
+                    string dataS = "Data: ";
+                    string venc = " | Vencedor: ";
+                    string perd = " | Perdedor: ";
+                    string gols = " | Gols: ";
                     add.open("Partidas/partidas.csv", ios::app);
                     partida.push_back(partidas());
                     for(i=partida.begin();i!=partida.end();i++){
-                    add<<(*i).getDate()<<','<<(*i).getCasa()<<','<< golCasa <<','<<(*i).getVisitante()<<','<< golVisitante <<'\n';
+                    add<<dataS<<(*i).getDate()<<venc<<(*i).getVisitante()<<gols<< golVisitante <<perd<<(*i).getCasa()<<gols<< golCasa <<'\n';
                     add.close();
                     cout << " " << endl;
                     i->setPlacarCasa(golCasa);
                     i->setPlacarVisitante(golVisitante);
+                    system("clear");
                     cout << "O time visitante venceu a partida!" << endl;
                     cout << " " << endl;
                     i->getPlacar();
@@ -825,14 +836,18 @@ int main(){
                     vector<partidas>::iterator i;
                     vector<partidas>partida;
                     ofstream add;
+                    string dataS = "Data: ";
+                    string empa = " | Empate: ";
+                    string gols = " | Gols: ";
                     add.open("Partidas/partidas.csv", ios::app);
                     partida.push_back(partidas());
                     for(i=partida.begin();i!=partida.end();i++){
-                    add<<(*i).getDate()<<','<<(*i).getCasa()<<','<< golCasa <<','<<(*i).getVisitante()<<','<< golVisitante <<'\n';
+                    add<<dataS<<(*i).getDate()<<empa<<(*i).getCasa()<<gols<< golCasa <<empa<<(*i).getVisitante()<<gols<< golVisitante <<'\n';
                     add.close();
                     cout << " " << endl;
                     i->setPlacarCasa(golCasa);
                     i->setPlacarVisitante(golVisitante);
+                    system("clear");
                     cout << "O jogo terminou em empate!" << endl;
                     cout << " " << endl;
                     i->getPlacar();
@@ -842,7 +857,6 @@ int main(){
                     cin >> tec;
                     system("clear");
                 }
-                // criar partida
             }else if(partida == 2){
                 string dat;
                 char linha[255];
@@ -862,14 +876,6 @@ int main(){
             }else{
                 system("clear");
             }
-        }else if(menu == 4){  // # Menu Dados Gerais #
-                system("clear");
-                int dados = menus::menuDadosG();
-                if (dados == 1){
-                    cout << "nao implementado ainda!" << endl;
-                }else{
-                    system("clear");
-                }
         }else{         // # Menu Sair #
             cout << hey::red << emojicpp::emojize("Você saiu! :worried:") << hey::off << endl;
             return false;

@@ -22,8 +22,7 @@ int menus::menuPrincipal(){
     cout << "|   Opção 1 - Jogadores    |" << endl;
     cout << "|   Opção 2 - Times        |" << endl;
     cout << "|   Opção 3 - Partidas     |" << endl;
-    cout << "|   Opção 4 - Dados gerais |" << endl;
-    cout << "|   Opção 5 - Sair         |" << endl;
+    cout << "|   Opção 4 - Sair         |" << endl;
     cout << "---------------------------- " << endl;
     cout << " " << endl;
     int opcao;
@@ -76,17 +75,6 @@ int menus::menuPartida(){
     return opcao;
 }
 
-int menus::menuDadosG(){ // ainda n implementado na main
-    cout << " " << endl;
-    cout << "----------------- " << hey::bluen << "DADOS GERAIS" << hey::off << " ---------------- " << endl;
-    cout << "|  Opção 1 - Inserir um nome para a pesquisa  |" << endl;
-    cout << "|  Opção 2 - Sair                             |" << endl;
-    cout << "----------------------------------------------- " << endl;
-    cout << " " << endl;
-    int opcao;
-    cin >> opcao;
-    return opcao;
-}
 int menus::menuListJogador(){
     cout << " " << endl;
     cout << "------------ " << hey::grayn << "LISTAR JOGADOR" << hey::off << " ----------- " << endl;
@@ -115,7 +103,7 @@ int menus::menuDeleteJogador(){
 };
 int menus::menuAddJogadoresTime(){
     cout << " " << endl;
-    cout << "------------ " << hey::grayn << "ADICIONAR JOGADOR" << hey::off << " ----------- " << endl;
+    cout << "------------ " << hey::bluen << "ADICIONAR JOGADOR" << hey::off << " ----------- " << endl;
     cout << "|  Opção 1 - Adicionar Jogador atacante  |" << endl;
     cout << "|  Opção 2 - Adicionar Jogador defensor  |" << endl;
     cout << "|  Opção 3 - Adicionar Goleiro           |" << endl;
@@ -126,6 +114,18 @@ int menus::menuAddJogadoresTime(){
     cin >> opcao;
     return opcao;
 };
+
+// int menus::menuDadosG(){ // ainda n implementado na main
+//     cout << " " << endl;
+//     cout << "----------------- " << hey::bluen << "DADOS GERAIS" << hey::off << " ---------------- " << endl;
+//     cout << "|  Opção 1 - Inserir um nome para a pesquisa  |" << endl;
+//     cout << "|  Opção 2 - Sair                             |" << endl;
+//     cout << "----------------------------------------------- " << endl;
+//     cout << " " << endl;
+//     int opcao;
+//     cin >> opcao;
+//     return opcao;
+// }
 
 
 // possivelmente futuramente o update sera o seguinte: update?: pergunta o nome, faz o delete e cria uma nova instancia, n gostou? só chora
