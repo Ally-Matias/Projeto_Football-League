@@ -128,12 +128,13 @@ int main(){
                         }
                     }
                     if(count!=1){
+                        system("clear");
                         cout<<"Jogador ATACANTE inexistente.";
+                        cout << " " << endl;
+                        cout << hey::yellowi << "Aperte qualquer tecla para voltar ao menu inicial: " << hey::off;
+                        cin >> tec;
+                        system("clear");
                     }
-                    cout << " " << endl;
-                    cout << hey::yellowi << "Aperte qualquer tecla para voltar ao menu inicial: " << hey::off;
-                    cin >> tec;
-                    system("clear");
                     jogadorATK.clear();
                 }
                 else if(opt==2){ //Listar Jogador Defensor.
@@ -177,7 +178,12 @@ int main(){
                         }
                     }
                     if(count!=1){
+                        system("clear");
                         cout<<"Jogador DEFENSOR não existente.";
+                        cout << " " << endl;
+                        cout << hey::yellowi << "Aperte qualquer tecla para voltar ao menu inicial: " << hey::off;
+                        cin >> tec;
+                        system("clear");
                     }
                     cout << " " << endl;
                     cout << hey::yellowi << "Aperte qualquer tecla para voltar ao menu inicial: " << hey::off;
@@ -233,7 +239,12 @@ int main(){
                         }
                     }
                     if(count!=1){
+                        system("clear");
                         cout<<"Jogador GOLEIRO não existente.";
+                        cout << " " << endl;
+                        cout << hey::yellowi << "Aperte qualquer tecla para voltar ao menu inicial: " << hey::off;
+                        cin >> tec;
+                        system("clear");
                     }
                     cout << " " << endl;
                     cout << hey::yellowi << "Aperte qualquer tecla para voltar ao menu inicial: " << hey::off;
@@ -504,7 +515,7 @@ int main(){
                     if(palavras[i]==nometime){
                         add.open(nometime, ios::app);
                         int opt=menus::menuAddJogadoresTime();
-                        if(opt==1){ //Inserir jogadorAtacante.
+                        if(opt==1){        //Inserir jogadorAtacante.
                             system("clear");
                             ifstream read("Jogadores/jogadorAtacante.csv");
                             cout<<"Insira o nome do jogador a inserir: "<<'\n';
@@ -535,12 +546,22 @@ int main(){
                             }
                             for(int i=0;i<jogadorATK.size();i++){
                                 if(jogadorATK[i].getNome()==nomejogador){ //Se o índice referente ao nome do objeto for igual ao nome fornecido listamos o jogador.
-                                add<<jogadorATK[i].getNome()<<','<<jogadorATK[i].getIdade()<<','<<jogadorATK[i].getHabilidade()<<','<<jogadorATK[i].getGols()<<','<<jogadorATK[i].getCamisa()<<','<<jogadorATK[i].getVelocidade()<<','<<jogadorATK[i].getTecnica()<<'\n';
-                                count=1;
+                                    add<<jogadorATK[i].getNome()<<','<<jogadorATK[i].getIdade()<<','<<jogadorATK[i].getHabilidade()<<','<<jogadorATK[i].getGols()<<','<<jogadorATK[i].getCamisa()<<','<<jogadorATK[i].getVelocidade()<<','<<jogadorATK[i].getTecnica()<<'\n';
+                                    count=1;
+                                    system("clear");
+                                    cout << hey::green << "Jogador adicionado no time com sucesso!" << hey::off << endl;
+                                    cout << " " << endl;
+                                    cout << hey::yellowi << "Aperte qualquer tecla para voltar ao menu inicial: " << hey::off;
+                                    cin >> tec;
+                                    system("clear");
                                 }
                             }
                             if(count!=1){
-                                cout<<"Jogador Inexistente."<<'\n';
+                                cout<<"Jogador Inexistente!"<<'\n';
+                                cout << " " << endl;
+                                cout << hey::yellowi << "Aperte qualquer tecla para voltar ao menu inicial: " << hey::off;
+                                cin >> tec;
+                                system("clear");
                             }
                             jogadorATK.clear();
                             add.close();
@@ -576,12 +597,22 @@ int main(){
                             }
                             for(int i=0;i<jogadorDEF.size();i++){
                                 if(jogadorDEF[i].getNome()==nomejogador){ //Se o índice referente ao nome do objeto for igual ao nome fornecido listamos o jogador.
-                                add<<jogadorDEF[i].getNome()<<','<<jogadorDEF[i].getIdade()<<','<<jogadorDEF[i].getHabilidade()<<','<<jogadorDEF[i].getGols()<<','<<jogadorDEF[i].getCamisa()<<','<<jogadorDEF[i].getCobertura()<<','<<jogadorDEF[i].getDesarme()<<'\n';
-                                count=1;
+                                    add<<jogadorDEF[i].getNome()<<','<<jogadorDEF[i].getIdade()<<','<<jogadorDEF[i].getHabilidade()<<','<<jogadorDEF[i].getGols()<<','<<jogadorDEF[i].getCamisa()<<','<<jogadorDEF[i].getCobertura()<<','<<jogadorDEF[i].getDesarme()<<'\n';
+                                    count=1;
+                                    system("clear");
+                                    cout << hey::green << "Jogador adicionado no time com sucesso!" << hey::off << endl;
+                                    cout << " " << endl;
+                                    cout << hey::yellowi << "Aperte qualquer tecla para voltar ao menu inicial: " << hey::off;
+                                    cin >> tec;
+                                    system("clear");
                                 }
                             }
                             if(count!=1){
-                                cout<<"Jogador Inexistente."<<'\n';
+                                cout<<"Jogador Inexistente!"<<'\n';
+                                cout << " " << endl;
+                                cout << hey::yellowi << "Aperte qualquer tecla para voltar ao menu inicial: " << hey::off;
+                                cin >> tec;
+                                system("clear");
                             }
                             jogadorDEF.clear();
                             add.close();
@@ -624,22 +655,36 @@ int main(){
                             }
                             for(g=jogadorGK.begin();g != jogadorGK.end();g++){
                                 if((*g).getNome()==nomejogador){ //Se o índice referente ao nome do objeto for igual ao nome fornecido listamos o jogador.
-                                    (*g).print();
                                     add<<(*g).getNome()<<','<<(*g).getIdade()<<','<<(*g).getHabilidade()<<','<<(*g).getGols()<<','<<(*g).getCamisa()<<','<<(*g).getReflexos()<<','<<(*g).getAltura()<<'\n';
-                                count=1;
+                                    count=1;
+                                    system("clear");
+                                    cout << hey::green << "Jogador adicionado no time com sucesso!" << hey::off << endl;
+                                    cout << " " << endl;
+                                    cout << hey::yellowi << "Aperte qualquer tecla para voltar ao menu inicial: " << hey::off;
+                                    cin >> tec;
+                                    system("clear");
                                 }
                             }
                             if(count!=1){
-                                cout<<"Jogador Inexistente."<<'\n';
+                                cout<<"Jogador Inexistente!"<<'\n';
+                                cout << " " << endl;
+                                cout << hey::yellowi << "Aperte qualquer tecla para voltar ao menu inicial: " << hey::off;
+                                cin >> tec;
+                                system("clear");
                             }
                             jogadorGK.clear();
                             add.close();
                         }
                         count=1;
+
                     }
                 }
                 if(count!=1){
-                    cout<<"Time Inexistente."<<'\n';
+                    cout<<"Time Inexistente!"<<'\n';
+                    cout << " " << endl;
+                    cout << hey::yellowi << "Aperte qualquer tecla para voltar ao menu inicial: " << hey::off;
+                    cin >> tec;
+                    system("clear");
                 }
             }else if(time == 3){    // excluir time     
                 int count{0}; //Contador.
