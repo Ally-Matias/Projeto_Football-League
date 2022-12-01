@@ -546,7 +546,7 @@ int main(){
                             }
                             for(int i=0;i<jogadorATK.size();i++){
                                 if(jogadorATK[i].getNome()==nomejogador){ //Se o índice referente ao nome do objeto for igual ao nome fornecido listamos o jogador.
-                                    add<<jogadorATK[i].getNome()<<','<<jogadorATK[i].getIdade()<<','<<jogadorATK[i].getHabilidade()<<','<<jogadorATK[i].getGols()<<','<<jogadorATK[i].getCamisa()<<','<<jogadorATK[i].getVelocidade()<<','<<jogadorATK[i].getTecnica()<<'\n';
+                                    add<<jogadorATK[i].getNome()<<'\n';
                                     count=1;
                                     system("clear");
                                     cout << hey::green << "Jogador adicionado no time com sucesso!" << hey::off << endl;
@@ -597,7 +597,7 @@ int main(){
                             }
                             for(int i=0;i<jogadorDEF.size();i++){
                                 if(jogadorDEF[i].getNome()==nomejogador){ //Se o índice referente ao nome do objeto for igual ao nome fornecido listamos o jogador.
-                                    add<<jogadorDEF[i].getNome()<<','<<jogadorDEF[i].getIdade()<<','<<jogadorDEF[i].getHabilidade()<<','<<jogadorDEF[i].getGols()<<','<<jogadorDEF[i].getCamisa()<<','<<jogadorDEF[i].getCobertura()<<','<<jogadorDEF[i].getDesarme()<<'\n';
+                                    add<<jogadorDEF[i].getNome()<<'\n';
                                     count=1;
                                     system("clear");
                                     cout << hey::green << "Jogador adicionado no time com sucesso!" << hey::off << endl;
@@ -655,7 +655,7 @@ int main(){
                             }
                             for(g=jogadorGK.begin();g != jogadorGK.end();g++){
                                 if((*g).getNome()==nomejogador){ //Se o índice referente ao nome do objeto for igual ao nome fornecido listamos o jogador.
-                                    add<<(*g).getNome()<<','<<(*g).getIdade()<<','<<(*g).getHabilidade()<<','<<(*g).getGols()<<','<<(*g).getCamisa()<<','<<(*g).getReflexos()<<','<<(*g).getAltura()<<'\n';
+                                    add<<(*g).getNome()<<'\n';
                                     count=1;
                                     system("clear");
                                     cout << hey::green << "Jogador adicionado no time com sucesso!" << hey::off << endl;
@@ -768,7 +768,36 @@ int main(){
                 cin >> tec;
                 system("clear");
             }else if(time == 5){  // exibir time
-                cout << "Exibir time não implementado." << endl;
+                int count{0};
+                string nometime,linha;
+                cout <<"Insira o nome do time para exibi-lo: ";
+                cin>>nometime;
+                ifstream read(nometime, ios::in);
+                if(!read){
+                    cout<<"Time Inexistente";
+                }
+                else{
+                    while(getline(read, linha)){ //Lendo o fluxo de texto e salvando na variável linha.
+                    palavras.clear(); // Limpando o vector palavras.
+                    string temp="";
+                    for(int i = 0;i < linha.size();i++){
+                        if (linha[i]==' '){ //Se a vírgula for detectada adicionamos o texto anterior.
+                            palavras.push_back(temp);
+                            temp="";
+                        }
+                        else{
+                            temp+=linha[i]; //Caso não haja vírgula a variável temp recebe o conteúdo da linha.
+                        }
+                    }
+                    if (temp.size()>0){
+                        palavras.push_back(temp);
+                    }
+                    }
+                    cout<<"O time"<<" "<<nometime<<" "<<"é formado pelos jogadores: "<<'\n'; 
+                    for(int i = 0;i < palavras.size();i++){
+                        cout<<palavras[i]<<'\n';
+                    }
+                }
             }else{
                 system("clear");
                 // sair
