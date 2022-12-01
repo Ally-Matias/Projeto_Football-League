@@ -504,7 +504,7 @@ int main(){
                     if(palavras[i]==nometime){
                         add.open(nometime, ios::app);
                         int opt=menus::menuAddJogadoresTime();
-                        if(opt==1){
+                        if(opt==1){ //Inserir jogadorAtacante.
                             system("clear");
                             ifstream read("Jogadores/jogadorAtacante.csv");
                             cout<<"Insira o nome do jogador a inserir: "<<'\n';
@@ -545,7 +545,7 @@ int main(){
                             jogadorATK.clear();
                             add.close();
                         }
-                        else if(opt==2){
+                        else if(opt==2){ //Inserir jogador Defensor.
                             system("clear");
                             ifstream read("Jogadores/jogadorDefesa.csv");
                             cout<<"Insira o nome do jogador a inserir: "<<'\n';
@@ -586,7 +586,7 @@ int main(){
                             jogadorDEF.clear();
                             add.close();
                         }
-                        else if(opt==3){
+                        else if(opt==3){ //Inserir jogador Goleiro.
 
                         }
                         else{
@@ -600,13 +600,14 @@ int main(){
                 }
             }else if(time == 3){    // excluir time     
                 int count{0}; //Contador.
-                    string pesquisData,linha,name; //Strings para o funcionamento da função excluir.
+                    string nometime,linha,name; //Strings para o funcionamento da função excluir.
                     ifstream read; //Objeto de IFSTREAM para leitura do arquivo.
                     ofstream add; //Objeto de OFSTREAM para a modififcação do arquivo.
                     read.open("Times/timesNomes.csv", ios::in); //Leitura do arquivo principal.
                     add.open("Times/newtimesNomes.csv", ios::app); //Abertura do arquivo auxiliar.
                     cout << hey::red << "Insira o nome do time a deletar: " << hey::off;
-                    cin>>pesquisData;
+                    cin>>nometime;
+                    const char *file =nometime.c_str();
                     cout << " " << endl;
                     //Estrutura para ler o arquivo CSV;
                     while(!read.eof()){ //Enquanto não tiver lido o arquivo inteiro.
@@ -628,7 +629,7 @@ int main(){
                         // Estrutura para a deleção de jogadores.
                         int tam_vector=palavras.size(); //Salvo o tamanho do vetor.
                         name=palavras[0]; //guardo o nome do jogador na variável name.
-                        if(name!=pesquisData){ //Se name for diferente do pesquisData informado.
+                        if(name!=nometime){ //Se name for diferente do pesquisData informado.
                             if(!read.eof()){ //Se enquanto não ler o aquivo inteiro.
                                 for(int i=0;i< tam_vector -1;i++){ //Adiciona os jogadores diferentes do informado ao novo arquivo.
                                 add<<palavras[i]<<","; //Adição dos membros que tem vírgula.
@@ -658,9 +659,10 @@ int main(){
                         cin >> tec;
                         system("clear");
                     }
-                    //Finalização 
+                    //Finalização
                     read.close(); //Close da leitura.
                     add.close(); //Close das modificações nos arquivos.
+                    remove(file);
                     remove("Times/timesNomes.csv"); //Remove do Arquivo principal.
                     rename("Times/newtimesNomes.csv","Times/timesNomes.csv"); //Arquivo temporário se torna o arquivo principal.
             }else if(time == 4){   // exibir todos os times
