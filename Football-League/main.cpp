@@ -774,7 +774,12 @@ int main(){
                 cin>>nometime;
                 ifstream read(nometime, ios::in);
                 if(!read){
-                    cout<<"Time Inexistente";
+                    system("clear");
+                    cout<<"Time Inexistente!";
+                    cout << " " << endl;
+                    cout << hey::yellowi << "Aperte qualquer tecla para voltar ao menu inicial: " << hey::off;
+                    cin >> tec;
+                    system("clear");
                 }
                 else{
                     while(getline(read, linha)){ //Lendo o fluxo de texto e salvando na variável linha.
@@ -793,9 +798,14 @@ int main(){
                         palavras.push_back(temp);
                     }
                     }
+                    system("clear");
                     cout<<"O time"<<" "<<nometime<<" "<<"é formado pelos jogadores: "<<'\n'; 
                     for(int i = 0;i < palavras.size();i++){
                         cout<<palavras[i]<<'\n';
+                        cout << " " << endl;
+                        cout << hey::yellowi << "Aperte qualquer tecla para voltar ao menu inicial: " << hey::off;
+                        cin >> tec;
+                        system("clear");
                     }
                 }
             }else{
