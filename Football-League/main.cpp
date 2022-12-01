@@ -185,10 +185,6 @@ int main(){
                         cin >> tec;
                         system("clear");
                     }
-                    cout << " " << endl;
-                    cout << hey::yellowi << "Aperte qualquer tecla para voltar ao menu inicial: " << hey::off;
-                    cin >> tec;
-                    system("clear");
                     jogadorDEF.clear();
                 }
                 else if(opt==3){ //Listar Jogador Goleiro.
@@ -246,10 +242,6 @@ int main(){
                         cin >> tec;
                         system("clear");
                     }
-                    cout << " " << endl;
-                    cout << hey::yellowi << "Aperte qualquer tecla para voltar ao menu inicial: " << hey::off;
-                    cin >> tec;
-                    system("clear");
                     jogadorGK.clear();
                 }else{
                     system("clear");
@@ -921,5 +913,4 @@ int main(){
         }
     }
     return 0;
-    
 };
