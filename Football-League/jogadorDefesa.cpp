@@ -14,7 +14,7 @@ jogadorDefesa::jogadorDefesa(string nome,int idade,int habilidade,int gols,int c
 }
 jogadorDefesa::~jogadorDefesa(){}
 int jogadorDefesa::getHabilidade(){
-    auto habilidade{((Jogador::getHabilidade()*5)+(cobertura*3)+(desarme*2))/10};
+    auto habilidade{((Jogador::habilidade*5)+(cobertura*3)+(desarme*2))/10};
     return habilidade;
 }
 int jogadorDefesa::getCobertura(){

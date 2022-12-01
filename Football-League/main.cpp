@@ -185,7 +185,7 @@ int main(){
                     system("clear");
                     jogadorDEF.clear();
                 }
-                else if(opt==3){ //Listar Jgador Goleiro.
+                else if(opt==3){ //Listar Jogador Goleiro.
                     int count{0};
                     //Estrutura para ler o Arquivo csv e guardar os campos em um vector.
                     ifstream read("Jogadores/jogadorGoleiro.csv"); //Objeto ifstream para a leitura do arquivo csv.
@@ -587,7 +587,53 @@ int main(){
                             add.close();
                         }
                         else if(opt==3){ //Inserir jogador Goleiro.
-
+                            vector<jogadorGoleiro>::iterator g;
+                            system("clear");
+                            ifstream read("Jogadores/jogadorGoleiro.csv");
+                            cout<<"Insira o nome do jogador a inserir: "<<'\n';
+                            cin>>nomejogador;
+                            system("clear");
+                            while(getline(read, linha)){ //Lendo o fluxo de texto e salvando na variável linha.
+                                palavras.clear(); // Limpando o vector palavras.
+                                string temp="";
+                                for(int i = 0;i < linha.size();i++){
+                                    if (linha[i]==','){ //Se a vírgula for detectada adicionamos o texto anterior.
+                                        palavras.push_back(temp);
+                                        temp="";
+                                    }
+                                    else{
+                                        temp+=linha[i]; //Caso não haja vírgula a variável temp recebe o conteúdo da linha.
+                                    }
+                                }
+                                if (temp.size()>0){
+                                    palavras.push_back(temp);
+                                }
+                                //Após a criação do vetor palavras, temos que converter os valores que estão com o type STRING para o type INT.
+                                vector<int> stats; //Vetor de inteiros.
+                                vector<float> stats2; //Vetor de floats.
+                                for(int i=1;i < palavras.size();i++){ //Pulamos o índice [0] pois nele é contido o nome do Jogador. 
+                                    if(i==6){
+                                        stats2.push_back(stof(palavras[6])); //A função STOF é a responsável por converter STRING para FLOAT.
+                                    }
+                                    else{
+                                        stats.push_back(stoi(palavras[i])); //A função STOI é a responsável por converter STRING para INT. 
+                                    }
+                                }
+                                //Instanciação do jogador com um vector definitivo e com as devidas conversões de tipo.
+                                jogadorGK.push_back(jogadorGoleiro(palavras[0],stats[0],stats[1],stats[2],stats[3],stats[4],stats2[0]));
+                            }
+                            for(g=jogadorGK.begin();g != jogadorGK.end();g++){
+                                if((*g).getNome()==nomejogador){ //Se o índice referente ao nome do objeto for igual ao nome fornecido listamos o jogador.
+                                    (*g).print();
+                                    add<<(*g).getNome()<<','<<(*g).getIdade()<<','<<(*g).getHabilidade()<<','<<(*g).getGols()<<','<<(*g).getCamisa()<<','<<(*g).getReflexos()<<','<<(*g).getAltura()<<'\n';
+                                count=1;
+                                }
+                            }
+                            if(count!=1){
+                                cout<<"Jogador Inexistente."<<'\n';
+                            }
+                            jogadorGK.clear();
+                            add.close();
                         }
                         else{
 

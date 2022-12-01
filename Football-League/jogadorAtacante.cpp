@@ -14,7 +14,7 @@ jogadorAtacante::jogadorAtacante(string nome,int idade,int habilidade,int gols,i
 }
 jogadorAtacante::~jogadorAtacante(){};
 int jogadorAtacante::getHabilidade(){
-    auto habilidade{((Jogador::getHabilidade()*5)+(velocidade*2)+(tecnica*3))/10};
+    auto habilidade{((Jogador::habilidade*5)+(velocidade*2)+(tecnica*3))/10};
     return habilidade;
 }
 int jogadorAtacante::getVelocidade(){
