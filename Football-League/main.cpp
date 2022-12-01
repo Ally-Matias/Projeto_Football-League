@@ -135,6 +135,10 @@ int main(){
                         cin >> tec;
                         system("clear");
                     }
+                    cout << " " << endl;
+                    cout << hey::yellowi << "Aperte qualquer tecla para voltar ao menu inicial: " << hey::off;
+                    cin >> tec;
+                    system("clear");
                     jogadorATK.clear();
                 }
                 else if(opt==2){ //Listar Jogador Defensor.
@@ -685,6 +689,7 @@ int main(){
                     ofstream add; //Objeto de OFSTREAM para a modififcação do arquivo.
                     read.open("Times/timesNomes.csv", ios::in); //Leitura do arquivo principal.
                     add.open("Times/newtimesNomes.csv", ios::app); //Abertura do arquivo auxiliar.
+                    system("clear");
                     cout << hey::red << "Insira o nome do time a deletar: " << hey::off;
                     cin>>nometime;
                     const char *file =nometime.c_str();
@@ -762,6 +767,7 @@ int main(){
             }else if(time == 5){  // exibir time
                 int count{0};
                 string nometime,linha;
+                system("clear");
                 cout <<"Insira o nome do time para exibi-lo: ";
                 cin>>nometime;
                 ifstream read(nometime, ios::in);

@@ -66,7 +66,7 @@ int menus::menuPartida(){
     cout << " " << endl;
     cout << "--------- " << hey::cyann << "CRIAR PARTIDA" << hey::off << " -------- " << endl;
     cout << "|   Opção 1 - Criar partida    |" << endl;
-    cout << "|   Opção 2 - Exibir partida   |" << endl;
+    cout << "|   Opção 2 - Exibir partidas  |" << endl;
     cout << "|   Opção 3 - Sair             |" << endl;
     cout << "--------------------------------" << endl;
     cout << " " << endl;
