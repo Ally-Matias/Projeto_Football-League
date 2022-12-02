@@ -463,15 +463,12 @@ int main(){
             if(time == 1){     //criar time
                 system("clear");
                 vector<Time>::iterator i;
-                ofstream add;
-                ofstream add2;
-                add.open("Times/timesNomes.csv", ios::app);
-                times.push_back(Time());
+                ofstream add; //Objeto ofstream add;
+                add.open("Times/timesNomes.csv", ios::app); //Abertura do arquivo timesNomes.
+                times.push_back(Time()); //Instanciação do objeto provisório.
                 for(i=times.begin();i!=times.end();i++){
-                add<<(*i).getNome() << '\n';
-                string nometime=(*i).getNome();
-                add.close();
-                add2.close();
+                add<<(*i).getNome() << '\n'; //Adição dos dados do objeto ao arquivo CSV.
+                add.close(); //Close.
                 }
                 system("clear");
                 cout << hey::green << "Time registrado com sucesso!" << hey::off << endl;
@@ -481,9 +478,9 @@ int main(){
                 system("clear");
                 times.clear();
             }else if(time == 2){  // formar time
-                ofstream add;
-                int count{0};
-                string nometime,nomejogador;
+                ofstream add; //Objeto de ofstream add;
+                int count{0}; //Contador.0
+                string nometime,nomejogador; //Variáveis de uso para o código.
                 system("clear");
                 cout<<"Digite o nome do time que deseja formar: "<<'\n';
                 cin>>nometime;
@@ -495,12 +492,12 @@ int main(){
                     palavras.clear(); // Limpando o vector palavras.
                     string temp="";
                     for(int i = 0;i < linha.size();i++){
-                        if (linha[i]==' '){ //Se a vírgula for detectada adicionamos o texto anterior.
+                        if (linha[i]==' '){ //Se o espaço for detectado adicionamos o texto anterior.
                             palavras.push_back(temp);
                             temp="";
                         }
                         else{
-                            temp+=linha[i]; //Caso não haja vírgula a variável temp recebe o conteúdo da linha.
+                            temp+=linha[i]; //Caso não haja espaço a variável temp recebe o conteúdo da linha.
                         }
                     }
                     if (temp.size()>0){
@@ -508,12 +505,12 @@ int main(){
                     }
                 } 
                 for(int i=0;i<palavras.size();i++){
-                    if(palavras[i]==nometime){
-                        add.open(nometime, ios::app);
-                        int opt=menus::menuAddJogadoresTime();
-                        if(opt==1){        //Inserir jogadorAtacante.
+                    if(palavras[i]==nometime){ //Se o índice I for igual ao nome do time.
+                        add.open(nometime, ios::app); //Abertura do arquivo nometime.
+                        int opt=menus::menuAddJogadoresTime(); //MENU
+                        if(opt==1){ //Inserir jogadorAtacante.
                             system("clear");
-                            ifstream read("Jogadores/jogadorAtacante.csv");
+                            ifstream read("Jogadores/jogadorAtacante.csv"); //Objeto ifstream para a leitura do arquivo csv.
                             cout<<"Insira o nome do jogador a inserir: "<<'\n';
                             cin>>nomejogador;
                             system("clear");
@@ -541,7 +538,7 @@ int main(){
                                 jogadorATK.push_back(jogadorAtacante(palavras[0],stats[0],stats[1],stats[2],stats[3],stats[4],stats[5]));
                             }
                             for(int i=0;i<jogadorATK.size();i++){
-                                if(jogadorATK[i].getNome()==nomejogador){ //Se o índice referente ao nome do objeto for igual ao nome fornecido listamos o jogador.
+                                if(jogadorATK[i].getNome()==nomejogador){ //Se o índice referente ao nome do objeto for igual ao nome fornecido adicionamos o jogador.
                                     add<<jogadorATK[i].getNome()<<'\n';
                                     count=1;
                                     system("clear");
@@ -552,7 +549,7 @@ int main(){
                                     system("clear");
                                 }
                             }
-                            if(count!=1){
+                            if(count!=1){ //se count for diferente de 1.
                                 cout<<"Jogador Inexistente!"<<'\n';
                                 cout << " " << endl;
                                 cout << hey::yellowi << "Aperte qualquer tecla para voltar ao menu inicial: " << hey::off;
@@ -564,7 +561,7 @@ int main(){
                         }
                         else if(opt==2){ //Inserir jogador Defensor.
                             system("clear");
-                            ifstream read("Jogadores/jogadorDefesa.csv");
+                            ifstream read("Jogadores/jogadorDefesa.csv"); //Objeto ifstream para a leitura do arquivo csv.
                             cout<<"Insira o nome do jogador a inserir: "<<'\n';
                             cin>>nomejogador;
                             system("clear");
@@ -592,7 +589,7 @@ int main(){
                                 jogadorDEF.push_back(jogadorDefesa(palavras[0],stats[0],stats[1],stats[2],stats[3],stats[4],stats[5]));
                             }
                             for(int i=0;i<jogadorDEF.size();i++){
-                                if(jogadorDEF[i].getNome()==nomejogador){ //Se o índice referente ao nome do objeto for igual ao nome fornecido listamos o jogador.
+                                if(jogadorDEF[i].getNome()==nomejogador){ //Se o índice referente ao nome do objeto for igual ao nome fornecido adicionamos o jogador.
                                     add<<jogadorDEF[i].getNome()<<'\n';
                                     count=1;
                                     system("clear");
@@ -650,7 +647,7 @@ int main(){
                                 jogadorGK.push_back(jogadorGoleiro(palavras[0],stats[0],stats[1],stats[2],stats[3],stats[4],stats2[0]));
                             }
                             for(g=jogadorGK.begin();g != jogadorGK.end();g++){
-                                if((*g).getNome()==nomejogador){ //Se o índice referente ao nome do objeto for igual ao nome fornecido listamos o jogador.
+                                if((*g).getNome()==nomejogador){ //Se o índice referente ao nome do objeto for igual ao nome fornecido adicionamos o jogador.
                                     add<<(*g).getNome()<<'\n';
                                     count=1;
                                     system("clear");
