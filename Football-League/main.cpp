@@ -816,24 +816,23 @@ int main(){
             if(partida == 1){      // criar partida
                 system("clear");
                 srand((unsigned) time(NULL));
-                int golCasa = rand() % 8;
+                int golCasa = rand() % 8;        // duas variaveis contendo um numero aleatorio
                 int golVisitante = rand() % 8;
-                if(golCasa > golVisitante){    // futuramente sera dois randoms para gol time casa, gol time visit. após atribui os valores de gols e vitorias
+                if(golCasa > golVisitante){ 
                     vector<partidas>::iterator i;
                     vector<partidas>partida;
                     ofstream add;
                     string dataS = "Data: ";
-                    string venc = " | Vencedor: ";
+                    string venc = " | Vencedor: ";  // variaveis formatas para csv
                     string perd = " | Perdedor: ";
                     string gols = " | Gols: ";
                     add.open("Partidas/partidas.csv", ios::app);
                     partida.push_back(partidas());
                     for(i=partida.begin();i!=partida.end();i++){
-                        add<<dataS<<(*i).getDate()<<venc<<(*i).getCasa()<<gols<< golCasa <<perd<<(*i).getVisitante()<<gols<< golVisitante <<'\n';
-                    // add<<(*i).getDate()<<','<<(*i).getCasa()<<','<< golCasa <<','<<(*i).getVisitante()<<','<< golVisitante <<'\n';
+                    add<<dataS<<(*i).getDate()<<venc<<(*i).getCasa()<<gols<< golCasa <<perd<<(*i).getVisitante()<<gols<< golVisitante <<'\n';
                     add.close();
                     cout << " " << endl;
-                    i->setPlacarCasa(golCasa);
+                    i->setPlacarCasa(golCasa);  // setando valores
                     i->setPlacarVisitante(golVisitante);
                     system("clear");
                     cout << "O time da casa venceu a partida!" << endl;
@@ -849,7 +848,7 @@ int main(){
                     vector<partidas>partida;
                     ofstream add;
                     string dataS = "Data: ";
-                    string venc = " | Vencedor: ";
+                    string venc = " | Vencedor: ";  // variaveis formatas para csv
                     string perd = " | Perdedor: ";
                     string gols = " | Gols: ";
                     add.open("Partidas/partidas.csv", ios::app);
@@ -858,7 +857,7 @@ int main(){
                     add<<dataS<<(*i).getDate()<<venc<<(*i).getVisitante()<<gols<< golVisitante <<perd<<(*i).getCasa()<<gols<< golCasa <<'\n';
                     add.close();
                     cout << " " << endl;
-                    i->setPlacarCasa(golCasa);
+                    i->setPlacarCasa(golCasa); // setando valores
                     i->setPlacarVisitante(golVisitante);
                     system("clear");
                     cout << "O time visitante venceu a partida!" << endl;
@@ -874,7 +873,7 @@ int main(){
                     vector<partidas>partida;
                     ofstream add;
                     string dataS = "Data: ";
-                    string empa = " | Empate: ";
+                    string empa = " | Empate: ";   // variaveis formatas para csv
                     string gols = " | Gols: ";
                     add.open("Partidas/partidas.csv", ios::app);
                     partida.push_back(partidas());
@@ -882,12 +881,12 @@ int main(){
                     add<<dataS<<(*i).getDate()<<empa<<(*i).getCasa()<<gols<< golCasa <<empa<<(*i).getVisitante()<<gols<< golVisitante <<'\n';
                     add.close();
                     cout << " " << endl;
-                    i->setPlacarCasa(golCasa);
+                    i->setPlacarCasa(golCasa);  // setando valores
                     i->setPlacarVisitante(golVisitante);
                     system("clear");
                     cout << "O jogo terminou em empate!" << endl;
                     cout << " " << endl;
-                    i->getPlacar();
+                    i->getPlacar();   // retorna o placar com as variaveis da propria classe
                     }
                     cout << " " << endl;
                     cout << hey::yellowi << "Aperte qualquer tecla para voltar ao menu inicial: " << hey::off;
@@ -896,12 +895,12 @@ int main(){
                 }
             }else if(partida == 2){
                 string dat;
-                char linha[255];
+                char linha[255];   // pega 255 caracteres da linha
                 fstream arquivo;
                 cout << hey::grayn << "As datas das partidas são: " << hey::off << endl;
                 cout << " " << endl;
                 arquivo.open("Partidas/partidas.csv",fstream::in);
-                arquivo.read(linha, 255);
+                arquivo.read(linha, 255);   // vai ler toda a linha 
                 cout << linha << endl;
                 arquivo.close();
 

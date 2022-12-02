@@ -126,6 +126,3 @@ int menus::menuAddJogadoresTime(){
 //     cin >> opcao;
 //     return opcao;
 // }
-
-
-// possivelmente futuramente o update sera o seguinte: update?: pergunta o nome, faz o delete e cria uma nova instancia, n gostou? só chora

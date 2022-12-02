@@ -13,7 +13,7 @@ using namespace std;
 class Time{
 protected:
     string nome;
-    string jogador;  // futuramente vai ser um vetor
+    string jogador;
     int vitorias = 0;
     int derrotas = 0;
     int empates = 0;
@@ -31,5 +31,4 @@ public:
     int somaVitorias();
     int somaDerrotas();
     int somaEmpates();
-    //void insJogador(Jogador pJpg);        // instanciamento de jogador, atribui ao atributo jogador
 };
