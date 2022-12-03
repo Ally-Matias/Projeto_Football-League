@@ -135,11 +135,6 @@ int main(){
                         cin >> tec;
                         system("clear");
                     }
-                    cout << " " << endl;
-                    cout << hey::yellowi << "Aperte qualquer tecla para voltar ao menu inicial: " << hey::off;
-                    cin >> tec;
-                    system("clear");
-                    jogadorATK.clear();
                 }
                 else if(opt==2){ //Listar Jogador Defensor.
                     int count{0}; //Contador.
