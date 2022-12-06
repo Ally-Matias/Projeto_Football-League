@@ -1,6 +1,6 @@
 # Projeto_Football-League
 
-Projeto desenvolvido por mim, [Alliquison Matias](https://github.com/Ally-Matias), [João Paulo](https://github.com/joaopaulonr) e [Antonio Avelino](https://github.com/avelinofaco).
+Projeto desenvolvido por mim, [Alliquison Matias](https://github.com/Ally-Matias) e [João Paulo](https://github.com/joaopaulonr).
 ##
 
 Projeto idealizado para a implementação de uma estrutura de classes que permita armazenar e manipular dados de jogadores,times e jogos. Essa estrutura será utilizada para montar um protótipo de jogo de simulação estilo
